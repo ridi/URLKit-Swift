@@ -1,7 +1,8 @@
-import XCTest
+#error("""
 
-import URLKitTests
+  -----------------------------------------------------
 
-var tests = [XCTestCaseEntry]()
-tests += URLKitTests.allTests()
-XCTMain(tests)
+  Please test with `swift test --enable-test-discovery`
+
+  -----------------------------------------------------
+  """)

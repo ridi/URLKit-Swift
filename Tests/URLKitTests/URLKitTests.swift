@@ -8,8 +8,4 @@ final class URLKitTests: XCTestCase {
         // results.
         XCTAssertEqual(URLKit().text, "Hello, World!")
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }
