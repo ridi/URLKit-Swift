@@ -6,13 +6,19 @@ import PackageDescription
 let package = Package(
     name: "URLKit",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_12)
+        .macOS(.v10_13),
+        .iOS(.v11),
+        .watchOS(.v4),
+        .tvOS(.v11)
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "URLKit",
+            type: .dynamic,
+            targets: ["URLKit", "HTTPURLKit"]),
+        .library(
+            name: "URLKit-auto",
             targets: ["URLKit", "HTTPURLKit"]),
     ],
     dependencies: [
