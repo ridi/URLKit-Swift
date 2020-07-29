@@ -1,4 +1,3 @@
-#if canImport(RxSwift)
 import URLKit
 import RxSwift
 
@@ -21,4 +20,3 @@ extension Reactive where Base: Session {
         }
     }
 }
-#endif
