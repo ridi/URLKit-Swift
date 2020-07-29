@@ -45,7 +45,7 @@ let package = Package(
             dependencies: ["URLKit"]),
         .target(
             name: "HTTPURLKit",
-            dependencies: ["URLKit", "Alamofire"]),
+            dependencies: ["URLKit"]),
         .testTarget(
             name: "HTTPURLKitTests",
             dependencies: ["HTTPURLKit"]),
