@@ -1,4 +1,4 @@
-import HTTPURLKit
+import URLKit
 import RxSwift
 
 extension Session: ReactiveCompatible {}

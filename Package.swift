@@ -18,12 +18,12 @@ let package = Package(
             type: .dynamic,
             targets: ["URLKit", "HTTPURLKit"]),
         .library(
-            name: "RxURLKit",
-            type: .dynamic,
-            targets: ["RxHTTPURLKit"]),
-        .library(
             name: "URLKit-auto",
             targets: ["URLKit", "HTTPURLKit"]),
+        .library(
+            name: "RxURLKit",
+            type: .dynamic,
+            targets: ["RxURLKit", "RxHTTPURLKit"]),
         .library(
             name: "RxURLKit-auto",
             targets: ["RxHTTPURLKit"]),
@@ -49,6 +49,9 @@ let package = Package(
         .testTarget(
             name: "HTTPURLKitTests",
             dependencies: ["HTTPURLKit"]),
+        .target(
+            name: "RxURLKit",
+            dependencies: ["RxSwift", "URLKit"]),
         .target(
             name: "RxHTTPURLKit",
             dependencies: ["RxSwift", "HTTPURLKit"]),
