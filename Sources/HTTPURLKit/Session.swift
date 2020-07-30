@@ -21,6 +21,8 @@ open class Session: SessionProtocol {
         return alamofireSession
     }()
 
+    public init() {}
+
     @discardableResult
     open func request<T: Requestable>(
         request: T,
