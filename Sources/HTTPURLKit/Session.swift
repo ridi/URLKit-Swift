@@ -43,7 +43,7 @@ open class Session: SessionProtocol {
             switch request._requestResult {
             case .success(let request):
                 request
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError())) })
+                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) })
             case .failure(let error):
                 completion(.init(result: .failure(error)))
             }
