@@ -23,7 +23,9 @@ open class Session: SessionProtocol {
 
     open var baseURL: URL?
 
-    public init() {}
+    public init(baseURL: URL? = nil) {
+        self.baseURL = baseURL
+    }
 
     @discardableResult
     open func request<T: Requestable>(
