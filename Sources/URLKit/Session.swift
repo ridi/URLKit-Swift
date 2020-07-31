@@ -20,6 +20,8 @@ open class Session: SessionProtocol {
         return alamofireSession
     }()
 
+    open var baseURL: URL?
+
     public init() {}
 
     @discardableResult
@@ -31,7 +33,7 @@ open class Session: SessionProtocol {
             requestable: request,
             {
                 do {
-                    return .success(try _alamofireSession.request(request.asURLRequest()))
+                    return .success(try _alamofireSession.request(request.asURLRequest(baseURL: baseURL)))
                 } catch {
                     return .failure(error)
                 }
