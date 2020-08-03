@@ -1,21 +1,20 @@
 import Foundation
 import Alamofire
 
-public struct OAuthCredential: AuthenticationCredential {
-    let accessToken: String
-    let refreshToken: String
-    let userID: String
-    let expiration: Date
-
-    // Require refresh if within 5 minutes of expiration
-    public var requiresRefresh: Bool { Date(timeIntervalSinceNow: 60 * 5) > expiration }
+public protocol OAuthCredential: AuthenticationCredential {
+    var accessToken: String { get }
+    var requiresRefresh: Bool { get }
 }
 
 public protocol OAuthCredentialManager {
+    associatedtype Credential: OAuthCredential
+
+    var credential: Credential { get }
+
     func refresh(
-        _ credential: OAuthCredential,
-        for session: OAuthSession,
-        completion: @escaping (Result<OAuthCredential, Error>) -> Void
+        _ credential: Credential,
+        for session: OAuthSession<Credential, Self>,
+        completion: @escaping (Result<Credential, Error>) -> Void
     )
 
     func didRequest(
@@ -26,7 +25,7 @@ public protocol OAuthCredentialManager {
 
     func isRequest(
         _ urlRequest: URLRequest,
-        authenticatedWith credential: OAuthCredential
+        authenticatedWith credential: Credential
     ) -> Bool
 }
 
@@ -41,34 +40,21 @@ public extension OAuthCredentialManager {
 
     func isRequest(
         _ urlRequest: URLRequest,
-        authenticatedWith credential: OAuthCredential
+        authenticatedWith credential: Credential
     ) -> Bool {
         return true
     }
 }
 
-open class OAuthSession: Session {
-    public typealias Credential = OAuthCredential
+open class OAuthSession<Credential, CredentialManager: OAuthCredentialManager>: Session where CredentialManager.Credential == Credential {
+    open var credentialManager: CredentialManager
 
-    open var credential: OAuthCredential? {
-        get {
-            _alamofireAuthenticationInterceptor.credential
-        }
-        set {
-            _alamofireAuthenticationInterceptor.credential = newValue
-        }
-    }
+    lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: credentialManager.credential)
 
-    open var credentialManager: OAuthCredentialManager
-
-    lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: nil)
-
-    public required init(baseURL: URL? = nil, credential: OAuthCredential? = nil, credentialManager: OAuthCredentialManager) {
+    public required init(baseURL: URL? = nil, credentialManager: CredentialManager) {
         self.credentialManager = credentialManager
 
         super.init(baseURL: baseURL)
-
-        self.credential = credential
     }
 
     @available(*, unavailable)
@@ -112,13 +98,13 @@ open class OAuthSession: Session {
 }
 
 extension OAuthSession: Authenticator {
-    public func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
+    public func apply(_ credential: Credential, to urlRequest: inout URLRequest) {
         urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
     }
 
-    public func refresh(_ credential: OAuthCredential,
+    public func refresh(_ credential: Credential,
                         for session: Alamofire.Session,
-                        completion: @escaping (Result<OAuthCredential, Error>) -> Void) {
+                        completion: @escaping (Result<Credential, Error>) -> Void) {
         credentialManager.refresh(credential, for: self, completion: completion)
     }
 
@@ -128,7 +114,7 @@ extension OAuthSession: Authenticator {
         credentialManager.didRequest(urlRequest, with: response, failDueToAuthenticationError: error)
     }
 
-    public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: OAuthCredential) -> Bool {
+    public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: Credential) -> Bool {
         credentialManager.isRequest(urlRequest, authenticatedWith: credential)
     }
 }
