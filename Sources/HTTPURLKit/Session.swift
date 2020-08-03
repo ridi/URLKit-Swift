@@ -23,7 +23,7 @@ open class Session: SessionProtocol {
 
     open var baseURL: URL?
 
-    public init(baseURL: URL? = nil) {
+    public required init(baseURL: URL? = nil) {
         self.baseURL = baseURL
     }
 
