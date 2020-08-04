@@ -45,8 +45,17 @@ open class Session: SessionProtocol {
 
         mainQueue.async {
             switch request._requestResult {
-            case .success(let request):
-                request
+            case .success(let alamofireRequest):
+                alamofireRequest
+                    .validate({ (urlRequest, response, data) -> DataRequest.ValidationResult in
+                        do {
+                            try request.requestable.validate(request: urlRequest, response: response, data: data)
+                        } catch {
+                            return .failure(error)
+                        }
+
+                        return .success(())
+                    })
                     .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError())) })
             case .failure(let error):
                 completion(.init(result: .failure(error)))

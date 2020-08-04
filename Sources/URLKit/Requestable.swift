@@ -17,6 +17,20 @@ public enum ParameterEncodingStrategy {
     static var urlEncodedFormParameter: ParameterEncodingStrategy { .urlEncodedFormParameter(.deferredToHTTPMethod) }
 }
 
+public struct Validation {
+    public var _validation: (URLRequest?, URLResponse?, Data?) throws -> Void
+
+    public static func custom(
+        _ validation: @escaping (URLRequest?, URLResponse?, Data?) throws -> Void
+    ) -> Validation {
+        .init(_validation: validation)
+    }
+
+    public init(_validation: @escaping (URLRequest?, URLResponse?, Data?) throws -> Void) {
+        self._validation = _validation
+    }
+}
+
 public protocol Requestable {
     associatedtype Parameters: Encodable
     associatedtype ResponseBody: Decodable
@@ -30,6 +44,8 @@ public protocol Requestable {
     var url: URL { get }
 
     var requiresAuthentication: Bool { get }
+
+    var validations: [Validation] { get }
 }
 
 public extension Requestable {
@@ -41,6 +57,8 @@ public extension Requestable {
     static var baseURL: URL? { nil }
 
     var requiresAuthentication: Bool { false }
+
+    var validations: [Validation] { [] }
 }
 
 public extension Requestable where Self: Encodable {
@@ -80,5 +98,13 @@ extension Requestable {
         }
         
         return request
+    }
+
+    public func validate(request: URLRequest?, response: URLResponse?, data: Data?) throws {
+        try validations
+            .map { $0._validation }
+            .forEach {
+                try $0(request, response, data)
+            }
     }
 }
