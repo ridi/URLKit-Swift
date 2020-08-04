@@ -5,26 +5,27 @@ import URLKit
 open class Session: SessionProtocol {
     public static var shared: Session = .init()
 
-    open lazy var mainQueue = DispatchQueue(
-        label: "\(String(reflecting: Self.self)).main",
+    open var mainQueue = DispatchQueue(
+        label: "\(String(reflecting: Session.self)).main",
         qos: .default
     )
 
-    open lazy var requestQueue = DispatchQueue(
-        label: "\(String(reflecting: Self.self)).request",
+    open var requestQueue = DispatchQueue(
+        label: "\(String(reflecting: Session.self)).request",
         qos: .default
     )
 
-    lazy var _alamofireSession: Alamofire.Session = {
-        let alamofireSession = Alamofire.Session(rootQueue: requestQueue)
+    var _alamofireSession: Alamofire.Session
 
-        return alamofireSession
-    }()
+    open private(set) var baseURL: URL?
 
-    open var baseURL: URL?
+    open var session: URLSession {
+        _alamofireSession.session
+    }
 
-    public required init(baseURL: URL? = nil) {
+    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
         self.baseURL = baseURL
+        self._alamofireSession = .init(configuration: configuration ?? URLSessionConfiguration.af.default, rootQueue: requestQueue)
     }
 
     @discardableResult

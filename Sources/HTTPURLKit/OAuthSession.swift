@@ -51,15 +51,15 @@ open class OAuthSession<Credential, CredentialManager: OAuthCredentialManager>: 
 
     lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: credentialManager.credential)
 
-    public required init(baseURL: URL? = nil, credentialManager: CredentialManager) {
+    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil, credentialManager: CredentialManager) {
         self.credentialManager = credentialManager
 
-        super.init(baseURL: baseURL)
+        super.init(configuration: configuration, baseURL: baseURL)
     }
 
     @available(*, unavailable)
-    public required init(baseURL: URL? = nil) {
-        fatalError("init(baseURL:) has not been implemented")
+    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
+        fatalError("init(configuration:baseURL:) has not been implemented")
     }
 
     @discardableResult
