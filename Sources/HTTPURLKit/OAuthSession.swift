@@ -9,7 +9,7 @@ public protocol OAuthCredential: AuthenticationCredential {
 public protocol OAuthCredentialManager {
     associatedtype Credential: OAuthCredential
 
-    var credential: Credential { get }
+    var credential: Credential? { get }
 
     func apply(
         _ credential: Credential,
