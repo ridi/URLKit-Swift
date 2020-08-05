@@ -13,7 +13,7 @@ public protocol OAuthCredentialManager {
 
     func refresh(
         _ credential: Credential,
-        for session: OAuthSession<Credential, Self>,
+        for session: OAuthSession<Self>,
         completion: @escaping (Result<Credential, Error>) -> Void
     )
 
@@ -46,7 +46,9 @@ public extension OAuthCredentialManager {
     }
 }
 
-open class OAuthSession<Credential, CredentialManager: OAuthCredentialManager>: Session where CredentialManager.Credential == Credential {
+open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
+    public typealias Credential = CredentialManager.Credential
+
     open var credentialManager: CredentialManager
 
     lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: credentialManager.credential)
