@@ -11,6 +11,11 @@ public protocol OAuthCredentialManager {
 
     var credential: Credential { get }
 
+    func apply(
+        _ credential: Credential,
+        to urlRequest: inout URLRequest
+    )
+
     func refresh(
         _ credential: Credential,
         for session: OAuthSession<Self>,
@@ -30,6 +35,13 @@ public protocol OAuthCredentialManager {
 }
 
 public extension OAuthCredentialManager {
+    func apply(
+        _ credential: Credential,
+        to urlRequest: inout URLRequest
+    ) {
+        urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
+    }
+
     func didRequest(
         _ urlRequest: URLRequest,
         with response: HTTPURLResponse,
@@ -101,7 +113,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
 
 extension OAuthSession: Authenticator {
     public func apply(_ credential: Credential, to urlRequest: inout URLRequest) {
-        urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
+        credentialManager.apply(credential, to: &urlRequest)
     }
 
     public func refresh(_ credential: Credential,
