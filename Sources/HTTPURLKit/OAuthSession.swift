@@ -64,7 +64,7 @@ open class OAuthSession<Credential, CredentialManager: OAuthCredentialManager>: 
 
     @discardableResult
     open override func request<T: Requestable>(
-        request: T,
+        _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
         let request = Request.init(
