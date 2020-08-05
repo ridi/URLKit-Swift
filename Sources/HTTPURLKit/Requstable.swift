@@ -5,6 +5,8 @@ import Alamofire
 @_exported import struct URLKit.EmptyParameters
 @_exported import struct URLKit.EmptyResponse
 
+@_exported import struct URLKit.Validation
+
 public enum ValidationError : Error {
     case unacceptableStatusCode(Int)
 }
