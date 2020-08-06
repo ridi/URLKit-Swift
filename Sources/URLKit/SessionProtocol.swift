@@ -1,8 +1,9 @@
 import Foundation
+import Alamofire
 
 public protocol SessionProtocol: AnyObject {
     var mainQueue: DispatchQueue { get }
     var requestQueue: DispatchQueue { get }
 
-    var session: URLSession { get }
+    var underlyingSession: Alamofire.Session { get }
 }

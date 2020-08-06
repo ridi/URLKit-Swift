@@ -63,7 +63,10 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
 
     open var credentialManager: CredentialManager
 
-    lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: credentialManager.credential)
+    open private(set) lazy var authenticationInterceptor = AuthenticationInterceptor(
+        authenticator: self,
+        credential: credentialManager.credential
+    )
 
     public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil, credentialManager: CredentialManager) {
         self.credentialManager = credentialManager
@@ -86,9 +89,9 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
             {
                 do {
                     return .success(
-                        try _alamofireSession.request(
+                        try underlyingSession.request(
                             request.asURLRequest(),
-                            interceptor: request.requiresAuthentication ? _alamofireAuthenticationInterceptor : nil
+                            interceptor: request.requiresAuthentication ? authenticationInterceptor : nil
                         )
                     )
                 } catch {

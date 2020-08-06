@@ -14,17 +14,13 @@ open class Session: SessionProtocol {
         qos: .default
     )
 
-    var _alamofireSession: Alamofire.Session
+    open private(set) var underlyingSession: Alamofire.Session
 
     open private(set) var baseURL: URL?
 
-    open var session: URLSession {
-        _alamofireSession.session
-    }
-
     public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
         self.baseURL = baseURL
-        self._alamofireSession = .init(configuration: configuration ?? URLSessionConfiguration.af.default, rootQueue: requestQueue)
+        self.underlyingSession = .init(configuration: configuration ?? URLSessionConfiguration.af.default, rootQueue: requestQueue)
     }
 
     @discardableResult
@@ -36,7 +32,7 @@ open class Session: SessionProtocol {
             requestable: request,
             {
                 do {
-                    return .success(try _alamofireSession.request(request.asURLRequest(baseURL: baseURL)))
+                    return .success(try underlyingSession.request(request.asURLRequest(baseURL: baseURL)))
                 } catch {
                     return .failure(error)
                 }
