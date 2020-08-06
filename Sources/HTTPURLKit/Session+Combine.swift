@@ -26,17 +26,6 @@ extension Session {
         )
         .eraseToAnyPublisher()
     }
-
-    @discardableResult
-    open func request<T: Requestable>(
-        _ request: T
-    ) -> AnyPublisher<T.ResponseBody, Error> {
-        self.request(request)
-            .tryMap {
-                try $0.result.get()
-            }
-            .eraseToAnyPublisher()
-    }
 }
 
 #endif
