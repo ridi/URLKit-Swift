@@ -13,7 +13,7 @@ extension URLRequest {
 
     /// A dictionary containing all the HTTP header fields of the
     /// receiver.
-    public var ridi_allHTTPHeaderFields: [HTTPHeaderFieldName: String]? {
+    public var urlk_allHTTPHeaderFields: [HTTPHeaderFieldName: String]? {
         get {
             (allHTTPHeaderFields?
                 .map { (key: HTTPHeaderFieldName(rawValue: $0), value: $1) })

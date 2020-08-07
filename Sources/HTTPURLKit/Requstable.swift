@@ -57,7 +57,7 @@ extension Requestable {
             )!
         )
         request.httpMethod = httpMethod.rawValue
-        request.ridi_allHTTPHeaderFields = httpHeaders
+        request.urlk_allHTTPHeaderFields = httpHeaders
 
         switch parameterEncodingStrategy {
         case .urlEncodedFormParameter(let urlEncodedFormStrategy):

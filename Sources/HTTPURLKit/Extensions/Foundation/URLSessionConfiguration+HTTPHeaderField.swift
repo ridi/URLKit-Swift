@@ -1,7 +1,7 @@
 import Foundation
 
 extension URLSessionConfiguration {
-    var ridi_httpAdditionalHeaders: [URLRequest.HTTPHeaderFieldName: String]? {
+    var urlk_httpAdditionalHeaders: [URLRequest.HTTPHeaderFieldName: String]? {
         get {
             (httpAdditionalHeaders?
                 .map {
