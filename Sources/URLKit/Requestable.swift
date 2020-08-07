@@ -72,7 +72,10 @@ public extension Requestable where Self: Decodable {
 extension Requestable {
     func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
         var request = URLRequest(
-            url: URL(string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString, relativeTo: baseURL)!
+            url: URL(
+                string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString,
+                relativeTo: baseURL
+            )!
         )
 
         switch parameterEncodingStrategy {

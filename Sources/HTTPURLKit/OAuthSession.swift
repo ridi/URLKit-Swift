@@ -1,3 +1,5 @@
+// swiftlint:disable function_default_parameter_at_end
+
 import Foundation
 import Alamofire
 
@@ -68,7 +70,11 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
         credential: credentialManager.credential
     )
 
-    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil, credentialManager: CredentialManager) {
+    public required init(
+        configuration: URLSessionConfiguration? = nil,
+        baseURL: URL? = nil,
+        credentialManager: CredentialManager
+    ) {
         self.credentialManager = credentialManager
 
         super.init(configuration: configuration, baseURL: baseURL)
@@ -84,7 +90,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
         _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request.init(
+        let request = Request(
             requestable: request,
             {
                 do {
@@ -104,7 +110,9 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
             switch request._requestResult {
             case .success(let request):
                 request
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) })
+                    .responseDecodable(
+                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) }
+                    )
             case .failure(let error):
                 completion(.init(result: .failure(error), response: nil))
             }
@@ -135,4 +143,3 @@ extension OAuthSession: Authenticator {
         credentialManager.isRequest(urlRequest, authenticatedWith: credential)
     }
 }
-

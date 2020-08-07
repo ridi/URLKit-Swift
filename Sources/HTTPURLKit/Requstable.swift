@@ -7,7 +7,7 @@ import Alamofire
 
 @_exported import struct URLKit.Validation
 
-public enum ValidationError : Error {
+public enum ValidationError: Error {
     case unacceptableStatusCode(Int)
 }
 
@@ -51,7 +51,10 @@ public extension Requestable {
 extension Requestable {
     func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
         var request = URLRequest(
-            url: URL(string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString, relativeTo: baseURL)!
+            url: URL(
+                string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString,
+                relativeTo: baseURL
+            )!
         )
         request.httpMethod = httpMethod.rawValue
         request.ridi_allHTTPHeaderFields = httpHeaders

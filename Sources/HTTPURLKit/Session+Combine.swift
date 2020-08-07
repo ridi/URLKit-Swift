@@ -10,7 +10,7 @@ extension Session {
     ) -> AnyPublisher<Response<T.ResponseBody, Error>, Never> {
         var _request: Request<T>?
 
-        return Future() { promise in
+        return Future { promise in
             _request = self.request(request) { response in
                 promise(.success(response))
             }

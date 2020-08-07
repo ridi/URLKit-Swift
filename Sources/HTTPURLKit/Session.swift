@@ -29,7 +29,7 @@ open class Session: SessionProtocol {
         _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request.init(
+        let request = Request(
             requestable: request,
             {
                 do {
@@ -53,7 +53,9 @@ open class Session: SessionProtocol {
 
                         return .success(())
                     })
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) })
+                    .responseDecodable(
+                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) }
+                    )
             case .failure(let error):
                 completion(.init(result: .failure(error)))
             }

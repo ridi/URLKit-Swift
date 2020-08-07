@@ -28,7 +28,7 @@ open class Session: SessionProtocol {
         _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request.init(
+        let request = Request(
             requestable: request,
             {
                 do {
