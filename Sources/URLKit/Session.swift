@@ -55,7 +55,9 @@ open class Session: SessionProtocol {
 
                         return .success(())
                     })
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError())) })
+                    .responseDecodable(
+                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError())) }
+                    )
             case .failure(let error):
                 completion(.init(result: .failure(error)))
             }
