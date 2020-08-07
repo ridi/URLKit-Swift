@@ -111,7 +111,9 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
             case .success(let request):
                 request
                     .responseDecodable(
-                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) }
+                        completionHandler: {
+                            completion(.init(result: $0.result.eraseFailureToError(), response: $0.response))
+                        }
                     )
             case .failure(let error):
                 completion(.init(result: .failure(error), response: nil))

@@ -21,7 +21,10 @@ open class Session: SessionProtocol {
 
     public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
         self.baseURL = baseURL
-        self.underlyingSession = .init(configuration: configuration ?? URLSessionConfiguration.af.default, rootQueue: requestQueue)
+        self.underlyingSession = .init(
+            configuration: configuration ?? URLSessionConfiguration.af.default,
+            rootQueue: requestQueue
+        )
     }
 
     @discardableResult
@@ -44,7 +47,7 @@ open class Session: SessionProtocol {
             switch request._requestResult {
             case .success(let alamofireRequest):
                 alamofireRequest
-                    .validate({ (urlRequest, response, data) -> DataRequest.ValidationResult in
+                    .validate({ urlRequest, response, data in
                         do {
                             try request.requestable.validate(request: urlRequest, response: response, data: data)
                         } catch {
@@ -54,7 +57,9 @@ open class Session: SessionProtocol {
                         return .success(())
                     })
                     .responseDecodable(
-                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) }
+                        completionHandler: {
+                            completion(.init(result: $0.result.eraseFailureToError(), response: $0.response))
+                        }
                     )
             case .failure(let error):
                 completion(.init(result: .failure(error)))
