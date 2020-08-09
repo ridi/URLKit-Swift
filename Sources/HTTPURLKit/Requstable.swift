@@ -5,34 +5,6 @@ import Alamofire
 @_exported import struct URLKit.EmptyParameters
 @_exported import struct URLKit.EmptyResponse
 
-@_exported import struct URLKit.Validation
-
-public enum ValidationError: Error {
-    case unacceptableStatusCode(Int)
-}
-
-public extension Validation {
-    static func statusCodes<S: Sequence>(
-        _ statusCodes: S
-    ) -> Validation where S.Iterator.Element == Int {
-        self.statusCodes(IndexSet(statusCodes))
-    }
-
-    static func statusCodes(
-        _ statusCodes: IndexSet
-    ) -> Validation {
-        .init(_validation: { _, response, _ in
-            guard let httpURLResponse = response as? HTTPURLResponse else {
-                return
-            }
-
-            guard statusCodes.contains(httpURLResponse.statusCode) else {
-                throw ValidationError.unacceptableStatusCode(httpURLResponse.statusCode)
-            }
-        })
-    }
-}
-
 public protocol Requestable: URLKit.Requestable {
     var httpMethod: URLRequest.HTTPMethod { get }
     var httpHeaders: [URLRequest.HTTPHeaderFieldName: String]? { get }
@@ -59,27 +31,7 @@ extension Requestable {
         request.httpMethod = httpMethod.rawValue
         request.urlk_allHTTPHeaderFields = httpHeaders
 
-        switch parameterEncodingStrategy {
-        case .urlEncodedFormParameter(let urlEncodedFormStrategy):
-            request = try parameters.map {
-                try URLEncodedFormParameterEncoder(
-                    destination: {
-                        switch urlEncodedFormStrategy {
-                        case .deferredToHTTPMethod:
-                            return .methodDependent
-                        case .queryString:
-                            return .queryString
-                        case .httpBody:
-                            return .httpBody
-                        }
-                    }()
-                ).encode($0, into: request)
-            } ?? request
-        case .json:
-            request = try parameters.map {
-                try JSONParameterEncoder().encode($0, into: request)
-            } ?? request
-        }
+        try parameterEncodingStrategy.encode(parameters, into: &request)
 
         return request
     }
