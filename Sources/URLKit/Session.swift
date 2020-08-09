@@ -56,7 +56,12 @@ open class Session: SessionProtocol {
                         return .success(())
                     })
                     .responseDecodable(
-                        completionHandler: { completion(.init(result: $0.result.eraseFailureToError())) }
+                        completionHandler: {
+                            completion(.init(
+                                result: $0.result
+                                    .mapError { $0.underlyingError ?? $0 }
+                            ))
+                        }
                     )
             case .failure(let error):
                 completion(.init(result: .failure(error)))

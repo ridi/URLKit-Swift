@@ -112,7 +112,11 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                 request
                     .responseDecodable(
                         completionHandler: {
-                            completion(.init(result: $0.result.eraseFailureToError(), response: $0.response))
+                            completion(.init(
+                                result: $0.result
+                                    .mapError { $0.underlyingError ?? $0 },
+                                response: $0.response
+                            ))
                         }
                     )
             case .failure(let error):
