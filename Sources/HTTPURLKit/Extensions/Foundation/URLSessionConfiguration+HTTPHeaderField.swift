@@ -1,7 +1,7 @@
 import Foundation
 
 extension URLSessionConfiguration {
-    var urlk_httpAdditionalHeaders: [URLRequest.HTTPHeaderFieldName: String]? {
+    public var urlk_httpAdditionalHeaders: [URLRequest.HTTPHeaderFieldName: String]? {
         get {
             (httpAdditionalHeaders?
                 .map {

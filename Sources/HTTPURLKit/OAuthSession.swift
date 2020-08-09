@@ -71,7 +71,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
     )
 
     public required init(
-        configuration: URLSessionConfiguration? = nil,
+        configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
         credentialManager: CredentialManager
     ) {

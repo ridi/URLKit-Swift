@@ -18,10 +18,10 @@ open class Session: SessionProtocol {
 
     open private(set) var baseURL: URL?
 
-    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
+    public required init(configuration: URLSessionConfiguration = .default, baseURL: URL? = nil) {
         self.baseURL = baseURL
         self.underlyingSession = .init(
-            configuration: configuration ?? URLSessionConfiguration.af.default,
+            configuration: configuration,
             rootQueue: requestQueue
         )
     }
