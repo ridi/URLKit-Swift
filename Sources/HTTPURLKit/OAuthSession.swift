@@ -96,7 +96,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                 do {
                     return .success(
                         try underlyingSession.request(
-                            request.asURLRequest(),
+                            request.asURLRequest(baseURL: baseURL),
                             interceptor: request.requiresAuthentication ? authenticationInterceptor : nil
                         )
                     )
