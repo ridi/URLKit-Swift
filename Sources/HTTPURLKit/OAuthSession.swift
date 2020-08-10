@@ -108,8 +108,17 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
 
         mainQueue.async {
             switch request._requestResult {
-            case .success(let request):
-                request
+            case .success(let alamofireRequest):
+                alamofireRequest
+                    .validate({ urlRequest, response, data in
+                        do {
+                            try request.requestable.validate(request: urlRequest, response: response, data: data)
+                        } catch {
+                            return .failure(error)
+                        }
+
+                        return .success(())
+                    })
                     .responseDecodable(
                         completionHandler: {
                             completion(.init(
@@ -120,7 +129,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                         }
                     )
             case .failure(let error):
-                completion(.init(result: .failure(error), response: nil))
+                completion(.init(result: .failure(error)))
             }
         }
 
