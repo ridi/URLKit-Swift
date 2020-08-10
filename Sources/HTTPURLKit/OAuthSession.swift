@@ -56,7 +56,7 @@ public extension OAuthCredentialManager {
         _ urlRequest: URLRequest,
         authenticatedWith credential: Credential
     ) -> Bool {
-        return true
+        return urlRequest.headers.contains(.authorization(bearerToken: credential.accessToken))
     }
 }
 
