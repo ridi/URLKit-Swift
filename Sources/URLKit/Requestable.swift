@@ -4,6 +4,12 @@ import Alamofire
 public struct EmptyParameters: Encodable {}
 public struct EmptyResponse: Decodable {}
 
+extension EmptyResponse: Alamofire.EmptyResponse {
+    public static func emptyValue() -> EmptyResponse {
+        .init()
+    }
+}
+
 public protocol Requestable {
     associatedtype Parameters: Encodable
     associatedtype ResponseBody: Decodable
