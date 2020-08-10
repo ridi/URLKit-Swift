@@ -95,25 +95,16 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
         _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request(
-            requestable: request,
-            {
-                do {
-                    return .success(
-                        try underlyingSession.request(
-                            request.asURLRequest(baseURL: baseURL),
-                            interceptor: request.requiresAuthentication ? authenticationInterceptor : nil
-                        )
-                    )
-                } catch {
-                    return .failure(error)
-                }
-            }()
-        )
+        let request = Request(requestable: request)
 
         queue.async {
-            switch request._requestResult {
-            case .success(let alamofireRequest):
+            do {
+                let alamofireRequest = try self.underlyingSession.request(
+                    request.requestable.asURLRequest(baseURL: self.baseURL),
+                    interceptor: request.requestable.requiresAuthentication ? self.authenticationInterceptor : nil
+                )
+                request.underlyingRequest = alamofireRequest
+
                 alamofireRequest
                     .validate({ urlRequest, response, data in
                         do {
@@ -135,7 +126,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                             ))
                         }
                     )
-            case .failure(let error):
+            } catch {
                 completion(.init(result: .failure(error)))
             }
         }
