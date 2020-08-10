@@ -49,7 +49,7 @@ public extension OAuthCredentialManager {
         with response: HTTPURLResponse,
         failDueToAuthenticationError error: Error
     ) -> Bool {
-        return false
+        return response.statusCode == 401
     }
 
     func isRequest(
