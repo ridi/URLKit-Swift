@@ -18,9 +18,15 @@ open class Session: SessionProtocol {
     open private(set) var underlyingSession: Alamofire.Session
 
     open private(set) var baseURL: URL?
+    open private(set) var responseBodyDecoder: TopLevelDataDecoder
 
-    public required init(configuration: URLSessionConfiguration = .urlk_default, baseURL: URL? = nil) {
+    public required init(
+        configuration: URLSessionConfiguration = .urlk_default,
+        baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
+    ) {
         self.baseURL = baseURL
+        self.responseBodyDecoder = responseBodyDecoder
         self.underlyingSession = .init(
             configuration: configuration,
             rootQueue: requestQueue

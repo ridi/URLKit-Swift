@@ -1,7 +1,7 @@
 // swiftlint:disable function_default_parameter_at_end
-
 import Foundation
 import Alamofire
+import URLKit
 
 public protocol OAuthCredential: AuthenticationCredential {
     var accessToken: String { get }
@@ -73,16 +73,21 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
     public required init(
         configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder(),
         credentialManager: CredentialManager
     ) {
         self.credentialManager = credentialManager
 
-        super.init(configuration: configuration, baseURL: baseURL)
+        super.init(configuration: configuration, baseURL: baseURL, responseBodyDecoder: responseBodyDecoder)
     }
 
     @available(*, unavailable)
-    public required init(configuration: URLSessionConfiguration? = nil, baseURL: URL? = nil) {
-        fatalError("init(configuration:baseURL:) has not been implemented")
+    public required init(
+        configuration: URLSessionConfiguration = .urlk_default,
+        baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
+    ) {
+        fatalError("init(configuration:baseURL:responseBodyDecoder:) has not been implemented")
     }
 
     @discardableResult

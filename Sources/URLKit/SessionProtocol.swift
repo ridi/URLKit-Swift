@@ -7,9 +7,6 @@ public protocol SessionProtocol: AnyObject {
 
     var underlyingSession: Alamofire.Session { get }
 
+    var baseURL: URL? { get }
     var responseBodyDecoder: TopLevelDataDecoder { get }
-}
-
-public extension SessionProtocol {
-    var responseBodyDecoder: TopLevelDataDecoder { JSONDecoder() }
 }
