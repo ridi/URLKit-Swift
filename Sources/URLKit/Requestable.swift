@@ -9,7 +9,7 @@ public protocol Requestable {
     associatedtype ResponseBody: Decodable
 
     var parameters: Parameters? { get }
-    var parameterEncodingStrategy: ParameterEncodingStrategy<Parameters> { get }
+    var parameterEncodingStrategy: ParameterEncodingStrategy { get }
 
     static var responseBodyType: ResponseBody.Type? { get }
     var responseBodyDecoder: TopLevelDataDecoder? { get }
@@ -23,7 +23,7 @@ public protocol Requestable {
 
 public extension Requestable {
     var parameters: Parameters? { self as? Parameters }
-    var parameterEncodingStrategy: ParameterEncodingStrategy<Parameters> { .urlEncodedFormParameter }
+    var parameterEncodingStrategy: ParameterEncodingStrategy { .urlEncodedFormParameter }
 
     static var responseBodyType: ResponseBody.Type? { nil }
     var responseBodyDecoder: TopLevelDataDecoder? { nil }
