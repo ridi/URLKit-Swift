@@ -5,13 +5,8 @@ import URLKit
 open class Session: SessionProtocol {
     public static var shared: Session = .init()
 
-    open var mainQueue = DispatchQueue(
-        label: "\(String(reflecting: Session.self)).main",
-        qos: .default
-    )
-
-    open var requestQueue = DispatchQueue(
-        label: "\(String(reflecting: Session.self)).request",
+    open var queue = DispatchQueue(
+        label: "\(String(reflecting: Session.self))",
         qos: .default
     )
 
@@ -29,7 +24,7 @@ open class Session: SessionProtocol {
         self.responseBodyDecoder = responseBodyDecoder
         self.underlyingSession = .init(
             configuration: configuration,
-            rootQueue: requestQueue
+            rootQueue: queue
         )
     }
 
@@ -49,7 +44,7 @@ open class Session: SessionProtocol {
             }()
         )
 
-        mainQueue.async {
+        queue.async {
             switch request._requestResult {
             case .success(let alamofireRequest):
                 alamofireRequest
@@ -63,6 +58,7 @@ open class Session: SessionProtocol {
                         return .success(())
                     })
                     .responseDecodable(
+                        queue: self.queue,
                         decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(

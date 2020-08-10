@@ -111,7 +111,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
             }()
         )
 
-        mainQueue.async {
+        queue.async {
             switch request._requestResult {
             case .success(let alamofireRequest):
                 alamofireRequest
@@ -125,6 +125,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                         return .success(())
                     })
                     .responseDecodable(
+                        queue: self.queue,
                         decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(
