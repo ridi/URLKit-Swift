@@ -56,6 +56,7 @@ open class Session: SessionProtocol {
                         return .success(())
                     })
                     .responseDecodable(
+                        decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(
                                 result: $0.result

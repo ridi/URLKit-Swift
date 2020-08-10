@@ -24,7 +24,7 @@ extension Requestable {
     func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
         var request = URLRequest(
             url: URL(
-                string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString,
+                string: url.absoluteString,
                 relativeTo: baseURL
             )!
         )

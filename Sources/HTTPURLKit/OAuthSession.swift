@@ -120,6 +120,7 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
                         return .success(())
                     })
                     .responseDecodable(
+                        decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(
                                 result: $0.result

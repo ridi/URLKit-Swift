@@ -12,8 +12,8 @@ public protocol Requestable {
     var parameterEncodingStrategy: ParameterEncodingStrategy<Parameters> { get }
 
     static var responseBodyType: ResponseBody.Type? { get }
+    var responseBodyDecoder: TopLevelDataDecoder? { get }
 
-    static var baseURL: URL? { get }
     var url: URL { get }
 
     var requiresAuthentication: Bool { get }
@@ -26,8 +26,7 @@ public extension Requestable {
     var parameterEncodingStrategy: ParameterEncodingStrategy<Parameters> { .urlEncodedFormParameter }
 
     static var responseBodyType: ResponseBody.Type? { nil }
-
-    static var baseURL: URL? { nil }
+    var responseBodyDecoder: TopLevelDataDecoder? { nil }
 
     var requiresAuthentication: Bool { false }
 
@@ -42,7 +41,7 @@ extension Requestable {
     func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
         var request = URLRequest(
             url: URL(
-                string: URL(string: url.absoluteString, relativeTo: Self.baseURL)!.absoluteString,
+                string: url.absoluteString,
                 relativeTo: baseURL
             )!
         )
