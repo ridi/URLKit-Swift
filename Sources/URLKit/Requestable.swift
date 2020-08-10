@@ -22,7 +22,6 @@ public protocol Requestable {
 }
 
 public extension Requestable {
-    var parameters: Parameters? { nil }
     var parameterEncodingStrategy: ParameterEncodingStrategy<Parameters> { .urlEncodedFormParameter }
 
     static var responseBodyType: ResponseBody.Type? { nil }
@@ -36,6 +35,10 @@ public extension Requestable {
 
 public extension Requestable where Self: Encodable {
     var parameters: Self { self }
+}
+
+public extension Requestable where Parameters == EmptyParameters {
+    var parameters: Parameters? { nil }
 }
 
 public extension Requestable where Self: Decodable {
