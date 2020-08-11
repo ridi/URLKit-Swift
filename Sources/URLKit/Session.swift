@@ -12,14 +12,17 @@ open class Session: SessionProtocol {
     open private(set) var underlyingSession: Alamofire.Session
 
     open private(set) var baseURL: URL?
+    open private(set) var parameterEncodingStrategy: ParameterEncodingStrategy
     open private(set) var responseBodyDecoder: TopLevelDataDecoder
 
     public required init(
         configuration: URLSessionConfiguration = .default,
         baseURL: URL? = nil,
+        parameterEncodingStrategy: ParameterEncodingStrategy = .urlEncodedFormParameter,
         responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
     ) {
         self.baseURL = baseURL
+        self.parameterEncodingStrategy = parameterEncodingStrategy
         self.responseBodyDecoder = responseBodyDecoder
         self.underlyingSession = .init(
             configuration: configuration,
@@ -37,7 +40,10 @@ open class Session: SessionProtocol {
         queue.async {
             do {
                 let alamofireRequest = try self.underlyingSession.request(
-                    request.requestable.asURLRequest(baseURL: self.baseURL)
+                    request.requestable.asURLRequest(
+                        baseURL: self.baseURL,
+                        parameterEncodingStrategy: self.parameterEncodingStrategy
+                    )
                 )
                 request.underlyingRequest = alamofireRequest
 

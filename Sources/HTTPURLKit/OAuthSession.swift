@@ -79,13 +79,19 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
     public required init(
         configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
+        parameterEncodingStrategy: ParameterEncodingStrategy = .urlEncodedFormParameter,
         responseBodyDecoder: TopLevelDataDecoder = JSONDecoder(),
         authenticator: Authenticator,
         credential: Credential? = nil
     ) {
         self.authenticator = authenticator
 
-        super.init(configuration: configuration, baseURL: baseURL, responseBodyDecoder: responseBodyDecoder)
+        super.init(
+            configuration: configuration,
+            baseURL: baseURL,
+            parameterEncodingStrategy: parameterEncodingStrategy,
+            responseBodyDecoder: responseBodyDecoder
+        )
 
         authenticationInterceptor.credential = credential
     }
@@ -94,6 +100,7 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
     public required init(
         configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
+        parameterEncodingStrategy: ParameterEncodingStrategy = .urlEncodedFormParameter,
         responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
     ) {
         fatalError("init(configuration:baseURL:responseBodyDecoder:) has not been implemented")
@@ -109,7 +116,10 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
         queue.async {
             do {
                 let alamofireRequest = try self.underlyingSession.request(
-                    request.requestable.asURLRequest(baseURL: self.baseURL),
+                    request.requestable.asURLRequest(
+                        baseURL: self.baseURL,
+                        parameterEncodingStrategy: self.parameterEncodingStrategy
+                    ),
                     interceptor: request.requestable.requiresAuthentication ? self.authenticationInterceptor : nil
                 )
                 request.underlyingRequest = alamofireRequest
