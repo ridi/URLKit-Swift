@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>OAuthCredentialManager Protocol Reference</title>
+    <title>OAuthAuthenticator Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/OAuthCredentialManager" class="dashAnchor"></a>
-    <a title="OAuthCredentialManager Protocol Reference"></a>
+    <a name="//apple_ref/swift/Protocol/OAuthAuthenticator" class="dashAnchor"></a>
+    <a title="OAuthAuthenticator Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">HTTPURLKit Docs</a> (32% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">HTTPURLKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        OAuthCredentialManager Protocol Reference
+        OAuthAuthenticator Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -92,10 +92,10 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/OAuthCredential.html">OAuthCredential</a>
+                <a href="../Protocols/OAuthAuthenticator.html">OAuthAuthenticator</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/OAuthCredentialManager.html">OAuthCredentialManager</a>
+                <a href="../Protocols/OAuthCredential.html">OAuthCredential</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/Requestable.html">Requestable</a>
@@ -115,11 +115,11 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>OAuthCredentialManager</h1>
+            <h1>OAuthAuthenticator</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OAuthCredentialManager</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OAuthAuthenticator</span></code></pre>
 
                 </div>
               </div>
@@ -132,9 +132,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa"></a>
+                    <a name="/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa"></a>
                     <a name="//apple_ref/swift/Alias/Credential" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a>
+                    <a class="token" href="#/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa">Credential</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -159,36 +159,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP10credential0C0QzSgvp"></a>
-                    <a name="//apple_ref/swift/Property/credential" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP10credential0C0QzSgvp">credential</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthCredentialManager.html#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP5apply_2toy0C0Qz_10Foundation10URLRequestVztF"></a>
+                    <a name="/s:10HTTPURLKit18OAuthAuthenticatorP5apply_2toy10CredentialQz_10Foundation10URLRequestVztF"></a>
                     <a name="//apple_ref/swift/Method/apply(_:to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP5apply_2toy0C0Qz_10Foundation10URLRequestVztF">apply(_:<wbr>to:<wbr>)</a>
+                    <a class="token" href="#/s:10HTTPURLKit18OAuthAuthenticatorP5apply_2toy10CredentialQz_10Foundation10URLRequestVztF">apply(_:<wbr>to:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -212,7 +185,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span>
-    <span class="n">_</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthCredentialManager.html#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a></span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthAuthenticator.html#/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa">Credential</a></span><span class="p">,</span>
     <span class="n">to</span> <span class="nv">urlRequest</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">URLRequest</span>
 <span class="p">)</span></code></pre>
 
@@ -224,9 +197,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP7refresh_3for10completiony0C0Qz_AA0B7SessionCyxGys6ResultOyAHs5Error_pGctF"></a>
+                    <a name="/s:10HTTPURLKit18OAuthAuthenticatorP7refresh_3for10completiony10CredentialQz_AA0B7SessionCyxGys6ResultOyAHs5Error_pGctF"></a>
                     <a name="//apple_ref/swift/Method/refresh(_:for:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP7refresh_3for10completiony0C0Qz_AA0B7SessionCyxGys6ResultOyAHs5Error_pGctF">refresh(_:<wbr>for:<wbr>completion:<wbr>)</a>
+                    <a class="token" href="#/s:10HTTPURLKit18OAuthAuthenticatorP7refresh_3for10completiony10CredentialQz_AA0B7SessionCyxGys6ResultOyAHs5Error_pGctF">refresh(_:<wbr>for:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -242,9 +215,9 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">refresh</span><span class="p">(</span>
-    <span class="n">_</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthCredentialManager.html#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a></span><span class="p">,</span>
+    <span class="n">_</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthAuthenticator.html#/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa">Credential</a></span><span class="p">,</span>
     <span class="k">for</span> <span class="nv">session</span><span class="p">:</span> <span class="kt"><a href="../Classes/OAuthSession.html">OAuthSession</a></span><span class="o">&lt;</span><span class="k">Self</span><span class="o">&gt;</span><span class="p">,</span>
-    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/OAuthCredentialManager.html#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/OAuthAuthenticator.html#/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa">Credential</a></span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
 <span class="p">)</span></code></pre>
 
                         </div>
@@ -255,9 +228,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP10didRequest_4with28failDueToAuthenticationErrorSb10Foundation10URLRequestV_So17NSHTTPURLResponseCs0L0_ptF"></a>
+                    <a name="/s:10HTTPURLKit18OAuthAuthenticatorP10didRequest_4with28failDueToAuthenticationErrorSb10Foundation10URLRequestV_So17NSHTTPURLResponseCs0K0_ptF"></a>
                     <a name="//apple_ref/swift/Method/didRequest(_:with:failDueToAuthenticationError:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP10didRequest_4with28failDueToAuthenticationErrorSb10Foundation10URLRequestV_So17NSHTTPURLResponseCs0L0_ptF">didRequest(_:<wbr>with:<wbr>failDueToAuthenticationError:<wbr>)</a>
+                    <a class="token" href="#/s:10HTTPURLKit18OAuthAuthenticatorP10didRequest_4with28failDueToAuthenticationErrorSb10Foundation10URLRequestV_So17NSHTTPURLResponseCs0K0_ptF">didRequest(_:<wbr>with:<wbr>failDueToAuthenticationError:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -294,9 +267,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10HTTPURLKit22OAuthCredentialManagerP9isRequest_17authenticatedWithSb10Foundation10URLRequestV_0C0QztF"></a>
+                    <a name="/s:10HTTPURLKit18OAuthAuthenticatorP9isRequest_17authenticatedWithSb10Foundation10URLRequestV_10CredentialQztF"></a>
                     <a name="//apple_ref/swift/Method/isRequest(_:authenticatedWith:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10HTTPURLKit22OAuthCredentialManagerP9isRequest_17authenticatedWithSb10Foundation10URLRequestV_0C0QztF">isRequest(_:<wbr>authenticatedWith:<wbr>)</a>
+                    <a class="token" href="#/s:10HTTPURLKit18OAuthAuthenticatorP9isRequest_17authenticatedWithSb10Foundation10URLRequestV_10CredentialQztF">isRequest(_:<wbr>authenticatedWith:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Default implementation
@@ -321,7 +294,7 @@
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isRequest</span><span class="p">(</span>
     <span class="n">_</span> <span class="nv">urlRequest</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span>
-    <span class="n">authenticatedWith</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthCredentialManager.html#/s:10HTTPURLKit22OAuthCredentialManagerP0C0Qa">Credential</a></span>
+    <span class="n">authenticatedWith</span> <span class="nv">credential</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OAuthAuthenticator.html#/s:10HTTPURLKit18OAuthAuthenticatorP10CredentialQa">Credential</a></span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>

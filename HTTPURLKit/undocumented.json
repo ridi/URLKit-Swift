@@ -52,118 +52,118 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
       "line": 11,
-      "symbol": "OAuthCredentialManager",
+      "symbol": "OAuthAuthenticator",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
       "line": 12,
-      "symbol": "OAuthCredentialManager.Credential",
+      "symbol": "OAuthAuthenticator.Credential",
       "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
       "line": 14,
-      "symbol": "OAuthCredentialManager.credential",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 16,
-      "symbol": "OAuthCredentialManager.apply(_:to:)",
+      "symbol": "OAuthAuthenticator.apply(_:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 21,
-      "symbol": "OAuthCredentialManager.refresh(_:for:completion:)",
+      "line": 19,
+      "symbol": "OAuthAuthenticator.refresh(_:for:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 27,
-      "symbol": "OAuthCredentialManager.didRequest(_:with:failDueToAuthenticationError:)",
+      "line": 25,
+      "symbol": "OAuthAuthenticator.didRequest(_:with:failDueToAuthenticationError:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 33,
-      "symbol": "OAuthCredentialManager.isRequest(_:authenticatedWith:)",
+      "line": 31,
+      "symbol": "OAuthAuthenticator.isRequest(_:authenticatedWith:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 39,
-      "symbol": "OAuthCredentialManager",
+      "line": 37,
+      "symbol": "OAuthAuthenticator",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 40,
-      "symbol": "OAuthCredentialManager.apply(_:to:)",
+      "line": 38,
+      "symbol": "OAuthAuthenticator.apply(_:to:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 47,
-      "symbol": "OAuthCredentialManager.didRequest(_:with:failDueToAuthenticationError:)",
+      "line": 45,
+      "symbol": "OAuthAuthenticator.didRequest(_:with:failDueToAuthenticationError:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 55,
-      "symbol": "OAuthCredentialManager.isRequest(_:authenticatedWith:)",
+      "line": 53,
+      "symbol": "OAuthAuthenticator.isRequest(_:authenticatedWith:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 63,
+      "line": 61,
       "symbol": "OAuthSession",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 66,
-      "symbol": "OAuthSession.credentialManager",
+      "line": 64,
+      "symbol": "OAuthSession.credential",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 68,
+      "line": 72,
+      "symbol": "OAuthSession.authenticator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 74,
       "symbol": "OAuthSession.authenticationInterceptor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 73,
-      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:credentialManager:)",
+      "line": 79,
+      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:authenticator:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 94,
+      "line": 100,
       "symbol": "OAuthSession.request(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 138,
+      "line": 144,
       "symbol": "OAuthSession",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
