@@ -6,11 +6,16 @@ extension Session: ReactiveCompatible {}
 extension Reactive where Base: Session {
     @discardableResult
     public func request<T: Requestable>(
-        request: T
-    ) -> Single<Response<T.ResponseBody, Error>> {
+        _ request: T
+    ) -> Single<T.ResponseBody> {
         Single.create { single in
-            let request = self.base.request(request: request) { response in
-                single(.success(response))
+            let request = self.base.request(request) { response in
+                switch response.result {
+                case .success(let response):
+                    single(.success(response))
+                case .failure(let error):
+                    single(.error(error))
+                }
             }
 
             return Disposables.create {

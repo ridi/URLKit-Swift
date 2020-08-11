@@ -5,46 +5,65 @@ import URLKit
 open class Session: SessionProtocol {
     public static var shared: Session = .init()
 
-    open lazy var mainQueue = DispatchQueue(
-        label: "\(String(reflecting: Self.self)).main",
+    open var queue = DispatchQueue(
+        label: "\(String(reflecting: Session.self))",
         qos: .default
     )
 
-    open lazy var requestQueue = DispatchQueue(
-        label: "\(String(reflecting: Self.self)).request",
-        qos: .default
-    )
+    open private(set) var underlyingSession: Alamofire.Session
 
-    lazy var _alamofireSession: Alamofire.Session = {
-        let alamofireSession = Alamofire.Session(rootQueue: requestQueue)
+    open private(set) var baseURL: URL?
+    open private(set) var responseBodyDecoder: TopLevelDataDecoder
 
-        return alamofireSession
-    }()
-
-    public init() {}
+    public required init(
+        configuration: URLSessionConfiguration = .urlk_default,
+        baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
+    ) {
+        self.baseURL = baseURL
+        self.responseBodyDecoder = responseBodyDecoder
+        self.underlyingSession = .init(
+            configuration: configuration,
+            rootQueue: queue
+        )
+    }
 
     @discardableResult
     open func request<T: Requestable>(
-        request: T,
+        _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request.init(
-            requestable: request,
-            {
-                do {
-                    return .success(try _alamofireSession.request(request.asURLRequest()))
-                } catch {
-                    return .failure(error)
-                }
-            }()
-        )
+        let request = Request(requestable: request)
 
-        mainQueue.async {
-            switch request._requestResult {
-            case .success(let request):
-                request
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) })
-            case .failure(let error):
+        queue.async {
+            do {
+                let alamofireRequest = try self.underlyingSession.request(
+                    request.requestable.asURLRequest(baseURL: self.baseURL)
+                )
+                request.underlyingRequest = alamofireRequest
+
+                alamofireRequest
+                    .validate({ urlRequest, response, data in
+                        do {
+                            try request.requestable.validate(request: urlRequest, response: response, data: data)
+                        } catch {
+                            return .failure(error)
+                        }
+
+                        return .success(())
+                    })
+                    .responseDecodable(
+                        queue: self.queue,
+                        decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
+                        completionHandler: {
+                            completion(.init(
+                                result: $0.result
+                                    .mapError { $0.underlyingError ?? $0 },
+                                response: $0.response
+                            ))
+                        }
+                    )
+            } catch {
                 completion(.init(result: .failure(error)))
             }
         }

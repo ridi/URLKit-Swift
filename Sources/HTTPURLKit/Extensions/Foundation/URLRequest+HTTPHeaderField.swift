@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 extension URLRequest {
     public struct HTTPHeaderFieldName: RawRepresentable, Hashable {
@@ -13,7 +14,7 @@ extension URLRequest {
 
     /// A dictionary containing all the HTTP header fields of the
     /// receiver.
-    public var ridi_allHTTPHeaderFields: [HTTPHeaderFieldName: String]? {
+    public var urlk_allHTTPHeaderFields: [HTTPHeaderFieldName: String]? {
         get {
             (allHTTPHeaderFields?
                 .map { (key: HTTPHeaderFieldName(rawValue: $0), value: $1) })
@@ -54,5 +55,17 @@ extension URLRequest {
     /// header field names are case-insensitive.
     public mutating func addValue(_ value: String, forHTTPHeaderField field: HTTPHeaderFieldName) {
         setValue(value, forHTTPHeaderField: field.rawValue)
+    }
+}
+
+extension Dictionary where Key == URLRequest.HTTPHeaderFieldName, Value == String {
+    public static var urlk_default: Self {
+        self.init(
+            HTTPHeaders.default.map {
+                (key: URLRequest.HTTPHeaderFieldName(rawValue: $0.name), value: $0.value)
+
+            },
+            uniquingKeysWith: { $1 }
+        )
     }
 }

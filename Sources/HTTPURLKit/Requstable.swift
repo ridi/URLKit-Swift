@@ -21,11 +21,18 @@ public extension Requestable {
 }
 
 extension Requestable {
-    func asURLRequest() throws -> URLRequest {
-        var request = URLRequest(url: url)
+    func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
+        var request = URLRequest(
+            url: URL(
+                string: url.absoluteString,
+                relativeTo: baseURL
+            )!
+        )
         request.httpMethod = httpMethod.rawValue
-        request.ridi_allHTTPHeaderFields = httpHeaders
+        request.urlk_allHTTPHeaderFields = httpHeaders
 
-        return try parameters.map { try URLEncodedFormParameterEncoder().encode($0, into: request) } ?? request
+        try parameterEncodingStrategy.encode(parameters, into: &request)
+
+        return request
     }
 }

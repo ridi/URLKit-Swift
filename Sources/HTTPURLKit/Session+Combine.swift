@@ -6,12 +6,12 @@ import Combine
 extension Session {
     @discardableResult
     open func request<T: Requestable>(
-        request: T
+        _ request: T
     ) -> AnyPublisher<Response<T.ResponseBody, Error>, Never> {
         var _request: Request<T>?
 
-        return Future() { promise in
-            _request = self.request(request: request) { response in
+        return Future { promise in
+            _request = self.request(request) { response in
                 promise(.success(response))
             }
         }

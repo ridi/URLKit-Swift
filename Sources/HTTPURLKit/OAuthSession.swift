@@ -1,21 +1,27 @@
+// swiftlint:disable function_default_parameter_at_end
 import Foundation
 import Alamofire
+import URLKit
 
-public struct OAuthCredential: AuthenticationCredential {
-    let accessToken: String
-    let refreshToken: String
-    let userID: String
-    let expiration: Date
-
-    // Require refresh if within 5 minutes of expiration
-    public var requiresRefresh: Bool { Date(timeIntervalSinceNow: 60 * 5) > expiration }
+public protocol OAuthCredential: AuthenticationCredential {
+    var accessToken: String { get }
+    var requiresRefresh: Bool { get }
 }
 
 public protocol OAuthCredentialManager {
+    associatedtype Credential: OAuthCredential
+
+    var credential: Credential? { get }
+
+    func apply(
+        _ credential: Credential,
+        to urlRequest: inout URLRequest
+    )
+
     func refresh(
-        _ credential: OAuthCredential,
-        for session: OAuthSession,
-        completion: @escaping (Result<OAuthCredential, Error>) -> Void
+        _ credential: Credential,
+        for session: OAuthSession<Self>,
+        completion: @escaping (Result<Credential, Error>) -> Void
     )
 
     func didRequest(
@@ -26,79 +32,102 @@ public protocol OAuthCredentialManager {
 
     func isRequest(
         _ urlRequest: URLRequest,
-        authenticatedWith credential: OAuthCredential
+        authenticatedWith credential: Credential
     ) -> Bool
 }
 
 public extension OAuthCredentialManager {
+    func apply(
+        _ credential: Credential,
+        to urlRequest: inout URLRequest
+    ) {
+        urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
+    }
+
     func didRequest(
         _ urlRequest: URLRequest,
         with response: HTTPURLResponse,
         failDueToAuthenticationError error: Error
     ) -> Bool {
-        return false
+        return response.statusCode == 401
     }
 
     func isRequest(
         _ urlRequest: URLRequest,
-        authenticatedWith credential: OAuthCredential
+        authenticatedWith credential: Credential
     ) -> Bool {
-        return true
+        return urlRequest.headers.contains(.authorization(bearerToken: credential.accessToken))
     }
 }
 
-open class OAuthSession: Session {
-    public typealias Credential = OAuthCredential
+open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
+    public typealias Credential = CredentialManager.Credential
 
-    open var credential: OAuthCredential? {
-        get {
-            _alamofireAuthenticationInterceptor.credential
-        }
-        set {
-            _alamofireAuthenticationInterceptor.credential = newValue
-        }
-    }
+    open var credentialManager: CredentialManager
 
-    open var credentialManager: OAuthCredentialManager
+    open private(set) lazy var authenticationInterceptor = AuthenticationInterceptor(
+        authenticator: self,
+        credential: credentialManager.credential
+    )
 
-    lazy var _alamofireAuthenticationInterceptor = AuthenticationInterceptor(authenticator: self, credential: nil)
-
-    public init(credential: OAuthCredential? = nil, credentialManager: OAuthCredentialManager) {
+    public required init(
+        configuration: URLSessionConfiguration = .urlk_default,
+        baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder(),
+        credentialManager: CredentialManager
+    ) {
         self.credentialManager = credentialManager
 
-        super.init()
+        super.init(configuration: configuration, baseURL: baseURL, responseBodyDecoder: responseBodyDecoder)
+    }
 
-        self.credential = credential
+    @available(*, unavailable)
+    public required init(
+        configuration: URLSessionConfiguration = .urlk_default,
+        baseURL: URL? = nil,
+        responseBodyDecoder: TopLevelDataDecoder = JSONDecoder()
+    ) {
+        fatalError("init(configuration:baseURL:responseBodyDecoder:) has not been implemented")
     }
 
     @discardableResult
     open override func request<T: Requestable>(
-        request: T,
+        _ request: T,
         completion: @escaping (Response<T.ResponseBody, Error>) -> Void
     ) -> Request<T> {
-        let request = Request.init(
-            requestable: request,
-            {
-                do {
-                    return .success(
-                        try _alamofireSession.request(
-                            request.asURLRequest(),
-                            interceptor: request.requiresAuthentication ? _alamofireAuthenticationInterceptor : nil
-                        )
-                    )
-                } catch {
-                    return .failure(error)
-                }
-            }()
-        )
+        let request = Request(requestable: request)
 
-        mainQueue.async {
-            switch request._requestResult {
-            case .success(let request):
-                request
-                    .responseDecodable(completionHandler: { completion(.init(result: $0.result.eraseFailureToError(), response: $0.response)) })
-            case .failure(let error):
-                completion(.init(result: .failure(error), response: nil))
+        queue.async {
+            do {
+                let alamofireRequest = try self.underlyingSession.request(
+                    request.requestable.asURLRequest(baseURL: self.baseURL),
+                    interceptor: request.requestable.requiresAuthentication ? self.authenticationInterceptor : nil
+                )
+                request.underlyingRequest = alamofireRequest
+
+                alamofireRequest
+                    .validate({ urlRequest, response, data in
+                        do {
+                            try request.requestable.validate(request: urlRequest, response: response, data: data)
+                        } catch {
+                            return .failure(error)
+                        }
+
+                        return .success(())
+                    })
+                    .responseDecodable(
+                        queue: self.queue,
+                        decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
+                        completionHandler: {
+                            completion(.init(
+                                result: $0.result
+                                    .mapError { $0.underlyingError ?? $0 },
+                                response: $0.response
+                            ))
+                        }
+                    )
+            } catch {
+                completion(.init(result: .failure(error)))
             }
         }
 
@@ -107,13 +136,13 @@ open class OAuthSession: Session {
 }
 
 extension OAuthSession: Authenticator {
-    public func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
-        urlRequest.headers.add(.authorization(bearerToken: credential.accessToken))
+    public func apply(_ credential: Credential, to urlRequest: inout URLRequest) {
+        credentialManager.apply(credential, to: &urlRequest)
     }
 
-    public func refresh(_ credential: OAuthCredential,
+    public func refresh(_ credential: Credential,
                         for session: Alamofire.Session,
-                        completion: @escaping (Result<OAuthCredential, Error>) -> Void) {
+                        completion: @escaping (Result<Credential, Error>) -> Void) {
         credentialManager.refresh(credential, for: self, completion: completion)
     }
 
@@ -123,8 +152,7 @@ extension OAuthSession: Authenticator {
         credentialManager.didRequest(urlRequest, with: response, failDueToAuthenticationError: error)
     }
 
-    public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: OAuthCredential) -> Bool {
+    public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: Credential) -> Bool {
         credentialManager.isRequest(urlRequest, authenticatedWith: credential)
     }
 }
-
