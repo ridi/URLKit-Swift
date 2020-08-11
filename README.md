@@ -20,3 +20,7 @@ dependencies: [
     .package(url: "https://github.com/ridi/URLKit.swift.git", .upToNextMinor(from: "0.1.0"))
 ]
 ```
+
+## Documentation
+
+https://ridi.github.io/URLKit.swift/
