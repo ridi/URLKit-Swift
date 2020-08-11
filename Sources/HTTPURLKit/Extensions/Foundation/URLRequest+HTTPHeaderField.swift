@@ -62,7 +62,7 @@ extension Dictionary where Key == URLRequest.HTTPHeaderFieldName, Value == Strin
     public static var urlk_default: Self {
         self.init(
             HTTPHeaders.default.map {
-                (key: URLRequest.HTTPHeaderFieldName.init(rawValue: $0.name), value: $0.value)
+                (key: URLRequest.HTTPHeaderFieldName(rawValue: $0.name), value: $0.value)
 
             },
             uniquingKeysWith: { $1 }

@@ -6,7 +6,10 @@ import URLKit
 @_exported import struct URLKit.ParameterEncodingStrategy
 
 extension JSONParameterEncoder: ParameterEncoder {
-    public func encode<Parameters>(_ parameters: Parameters?, into request: inout URLRequest) throws where Parameters: Encodable {
+    public func encode<Parameters>(
+        _ parameters: Parameters?,
+        into request: inout URLRequest
+    ) throws where Parameters: Encodable {
         request = try encode(parameters, into: request)
     }
 }

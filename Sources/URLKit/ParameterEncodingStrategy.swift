@@ -32,7 +32,10 @@ public struct ParameterEncodingStrategy {
 }
 
 extension URLEncodedFormParameterEncoder: ParameterEncoder {
-    public func encode<Parameters>(_ parameters: Parameters?, into request: inout URLRequest) throws where Parameters: Encodable {
+    public func encode<Parameters>(
+        _ parameters: Parameters?,
+        into request: inout URLRequest
+    ) throws where Parameters: Encodable {
         request = try encode(parameters, into: request)
     }
 }
@@ -44,9 +47,13 @@ extension ParameterEncodingStrategy {
         case httpBody
     }
 
-    public static var urlEncodedFormParameter: ParameterEncodingStrategy { .urlEncodedFormParameter(.deferredToHTTPMethod) }
+    public static var urlEncodedFormParameter: ParameterEncodingStrategy {
+        .urlEncodedFormParameter(.deferredToHTTPMethod)
+    }
 
-    public static func urlEncodedFormParameter(_ urlEncodedFormStrategy: URLEncodedFormStrategy) -> ParameterEncodingStrategy {
+    public static func urlEncodedFormParameter(
+        _ urlEncodedFormStrategy: URLEncodedFormStrategy
+    ) -> ParameterEncodingStrategy {
         self.init(
             encoder: URLEncodedFormParameterEncoder(
                 destination: {
