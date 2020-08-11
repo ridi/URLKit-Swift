@@ -150,20 +150,20 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
       "line": 79,
-      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:authenticator:)",
+      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:authenticator:credential:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 100,
+      "line": 103,
       "symbol": "OAuthSession.request(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 144,
+      "line": 147,
       "symbol": "OAuthSession",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
