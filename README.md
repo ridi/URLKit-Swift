@@ -8,7 +8,7 @@
 
 ## Development Requirements
 
-- Xcode 11.6 or newer
+- Xcode 11.4 or newer
 - [Swiftlint](https://github.com/realm/SwiftLint) 0.39.1 or newer
 
 ## Installation
