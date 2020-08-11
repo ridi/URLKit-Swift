@@ -8,10 +8,8 @@ public protocol OAuthCredential: AuthenticationCredential {
     var requiresRefresh: Bool { get }
 }
 
-public protocol OAuthCredentialManager {
+public protocol OAuthAuthenticator {
     associatedtype Credential: OAuthCredential
-
-    var credential: Credential? { get }
 
     func apply(
         _ credential: Credential,
@@ -36,7 +34,7 @@ public protocol OAuthCredentialManager {
     ) -> Bool
 }
 
-public extension OAuthCredentialManager {
+public extension OAuthAuthenticator {
     func apply(
         _ credential: Credential,
         to urlRequest: inout URLRequest
@@ -60,23 +58,31 @@ public extension OAuthCredentialManager {
     }
 }
 
-open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
-    public typealias Credential = CredentialManager.Credential
+open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
+    public typealias Credential = Authenticator.Credential
 
-    open var credentialManager: CredentialManager
+    open var credential: Credential? {
+        get {
+            authenticationInterceptor.credential
+        }
+        set {
+            authenticationInterceptor.credential = newValue
+        }
+    }
+    open private(set) var authenticator: Authenticator
 
     open private(set) lazy var authenticationInterceptor = AuthenticationInterceptor(
         authenticator: self,
-        credential: credentialManager.credential
+        credential: nil
     )
 
     public required init(
         configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
         responseBodyDecoder: TopLevelDataDecoder = JSONDecoder(),
-        credentialManager: CredentialManager
+        authenticator: Authenticator
     ) {
-        self.credentialManager = credentialManager
+        self.authenticator = authenticator
 
         super.init(configuration: configuration, baseURL: baseURL, responseBodyDecoder: responseBodyDecoder)
     }
@@ -135,24 +141,24 @@ open class OAuthSession<CredentialManager: OAuthCredentialManager>: Session {
     }
 }
 
-extension OAuthSession: Authenticator {
+extension OAuthSession: Alamofire.Authenticator {
     public func apply(_ credential: Credential, to urlRequest: inout URLRequest) {
-        credentialManager.apply(credential, to: &urlRequest)
+        authenticator.apply(credential, to: &urlRequest)
     }
 
     public func refresh(_ credential: Credential,
                         for session: Alamofire.Session,
                         completion: @escaping (Result<Credential, Error>) -> Void) {
-        credentialManager.refresh(credential, for: self, completion: completion)
+        authenticator.refresh(credential, for: self, completion: completion)
     }
 
     public func didRequest(_ urlRequest: URLRequest,
                            with response: HTTPURLResponse,
                            failDueToAuthenticationError error: Error) -> Bool {
-        credentialManager.didRequest(urlRequest, with: response, failDueToAuthenticationError: error)
+        authenticator.didRequest(urlRequest, with: response, failDueToAuthenticationError: error)
     }
 
     public func isRequest(_ urlRequest: URLRequest, authenticatedWith credential: Credential) -> Bool {
-        credentialManager.isRequest(urlRequest, authenticatedWith: credential)
+        authenticator.isRequest(urlRequest, authenticatedWith: credential)
     }
 }
