@@ -31,7 +31,36 @@ jobs:
           --swift-build-tool spm \
           --author RIDI \
           --author_url https://www.ridicorp.com \
-          --github_url https://github.com/ridi/URLKit.swift
+          --github_url https://github.com/ridi/URLKit.swift \
+          --root-url https://ridi.github.io/URLKit.swift/URLKit \
+          --output docs/URLKit
+
+        bundle exec jazzy \
+          --module RxURLKit \
+          --swift-build-tool spm \
+          --author RIDI \
+          --author_url https://www.ridicorp.com \
+          --github_url https://github.com/ridi/URLKit.swift \
+          --root-url https://ridi.github.io/URLKit.swift/RxURLKit \
+          --output docs/RxURLKit
+        
+        bundle exec jazzy \
+          --module HTTPURLKit \
+          --swift-build-tool spm \
+          --author RIDI \
+          --author_url https://www.ridicorp.com \
+          --github_url https://github.com/ridi/URLKit.swift \
+          --root-url https://ridi.github.io/URLKit.swift/HTTPURLKit \
+          --output docs/HTTPURLKit
+
+        bundle exec jazzy \
+          --module RxHTTPURLKit \
+          --swift-build-tool spm \
+          --author RIDI \
+          --author_url https://www.ridicorp.com \
+          --github_url https://github.com/ridi/URLKit.swift \
+          --root-url https://ridi.github.io/URLKit.swift/RxHTTPURLKit \
+          --output docs/RxHTTPURLKit
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:

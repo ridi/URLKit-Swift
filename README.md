@@ -23,4 +23,7 @@ dependencies: [
 
 ## Documentation
 
-https://ridi.github.io/URLKit.swift/
+- https://ridi.github.io/URLKit.swift/URLKit
+- https://ridi.github.io/URLKit.swift/RxURLKit
+- https://ridi.github.io/URLKit.swift/HTTPURLKit
+- https://ridi.github.io/URLKit.swift/RxHTTPURLKit
