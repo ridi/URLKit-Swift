@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 4,
+      "symbol": "Session",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/RxHTTPURLKit/Session+Rx.swift",
+      "line": 8,
+      "symbol": "Reactive.request(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/URLKit.swift/URLKit.swift"
+}

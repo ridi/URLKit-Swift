@@ -1,0 +1,537 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Extensions/Result.swift",
+      "line": 4,
+      "symbol": "Result.eraseFailureToError()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Extensions/Result.swift",
+      "line": 13,
+      "symbol": "Result.eraseSuccessToVoid()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 4,
+      "symbol": "ParameterEncoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 5,
+      "symbol": "ParameterEncoder.encode(_:into:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 16,
+      "symbol": "ParameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 19,
+      "symbol": "ParameterEncodingStrategy.custom(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 25,
+      "symbol": "ParameterEncodingStrategy.init(encoder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 29,
+      "symbol": "ParameterEncodingStrategy.encode(_:into:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 35,
+      "symbol": "URLEncodedFormParameterEncoder.encode(_:into:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 43,
+      "symbol": "ParameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 44,
+      "symbol": "ParameterEncodingStrategy.URLEncodedFormStrategy",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 45,
+      "symbol": "ParameterEncodingStrategy.URLEncodedFormStrategy.deferredToHTTPMethod",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 46,
+      "symbol": "ParameterEncodingStrategy.URLEncodedFormStrategy.queryString",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 47,
+      "symbol": "ParameterEncodingStrategy.URLEncodedFormStrategy.httpBody",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 50,
+      "symbol": "ParameterEncodingStrategy.urlEncodedFormParameter",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 54,
+      "symbol": "ParameterEncodingStrategy.urlEncodedFormParameter(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Request.swift",
+      "line": 4,
+      "symbol": "Request",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Request.swift",
+      "line": 5,
+      "symbol": "Request.requestable",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Request.swift",
+      "line": 7,
+      "symbol": "Request.underlyingRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 4,
+      "symbol": "RequestProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 5,
+      "symbol": "RequestProtocol.Requestable",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 7,
+      "symbol": "RequestProtocol.requestable",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 8,
+      "symbol": "RequestProtocol.underlyingRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 11,
+      "symbol": "RequestProtocol",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/RequestProtocol.swift",
+      "line": 12,
+      "symbol": "RequestProtocol.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 4,
+      "symbol": "EmptyParameters",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 5,
+      "symbol": "EmptyResponse",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 7,
+      "symbol": "EmptyResponse",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 13,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 14,
+      "symbol": "Requestable.Parameters",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 15,
+      "symbol": "Requestable.ResponseBody",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 17,
+      "symbol": "Requestable.parameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 18,
+      "symbol": "Requestable.parameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 20,
+      "symbol": "Requestable.responseBodyType",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 21,
+      "symbol": "Requestable.responseBodyDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 23,
+      "symbol": "Requestable.url",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 25,
+      "symbol": "Requestable.requiresAuthentication",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 27,
+      "symbol": "Requestable.validations",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 30,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 31,
+      "symbol": "Requestable.parameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 32,
+      "symbol": "Requestable.parameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 34,
+      "symbol": "Requestable.responseBodyType",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 35,
+      "symbol": "Requestable.responseBodyDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 37,
+      "symbol": "Requestable.requiresAuthentication",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 39,
+      "symbol": "Requestable.validations",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 42,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 43,
+      "symbol": "Requestable.responseType",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 46,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Requestable.swift",
+      "line": 60,
+      "symbol": "Requestable.validate(request:response:data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Response.swift",
+      "line": 3,
+      "symbol": "Response",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Response.swift",
+      "line": 4,
+      "symbol": "Response.result",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ResponseProtocol.swift",
+      "line": 3,
+      "symbol": "ResponseProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ResponseProtocol.swift",
+      "line": 4,
+      "symbol": "ResponseProtocol.Success",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ResponseProtocol.swift",
+      "line": 5,
+      "symbol": "ResponseProtocol.Failure",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ResponseProtocol.swift",
+      "line": 7,
+      "symbol": "ResponseProtocol.result",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 4,
+      "symbol": "Session",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 5,
+      "symbol": "Session.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 7,
+      "symbol": "Session.queue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 12,
+      "symbol": "Session.underlyingSession",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 14,
+      "symbol": "Session.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 15,
+      "symbol": "Session.responseBodyDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 17,
+      "symbol": "Session.init(configuration:baseURL:responseBodyDecoder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 31,
+      "symbol": "Session.request(_:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/SessionProtocol.swift",
+      "line": 4,
+      "symbol": "SessionProtocol",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/SessionProtocol.swift",
+      "line": 5,
+      "symbol": "SessionProtocol.queue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/SessionProtocol.swift",
+      "line": 7,
+      "symbol": "SessionProtocol.underlyingSession",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/SessionProtocol.swift",
+      "line": 9,
+      "symbol": "SessionProtocol.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/SessionProtocol.swift",
+      "line": 10,
+      "symbol": "SessionProtocol.responseBodyDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/TopLevelDataDecoder.swift",
+      "line": 4,
+      "symbol": "TopLevelDataDecoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/TopLevelDataDecoder.swift",
+      "line": 5,
+      "symbol": "TopLevelDataDecoder.decode(_:from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/TopLevelDataEncoder.swift",
+      "line": 4,
+      "symbol": "TopLevelDataEncoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/TopLevelDataEncoder.swift",
+      "line": 5,
+      "symbol": "TopLevelDataEncoder.encode(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Validation.swift",
+      "line": 3,
+      "symbol": "Validation",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Validation.swift",
+      "line": 6,
+      "symbol": "Validation.custom(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Validation.swift",
+      "line": 12,
+      "symbol": "Validation.init(validation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Validation.swift",
+      "line": 16,
+      "symbol": "Validation.validate(request:response:data:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/URLKit.swift/URLKit.swift"
+}

@@ -1,0 +1,390 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Extensions/Foundation/URLRequest+HTTPHeaderField.swift",
+      "line": 5,
+      "symbol": "URLRequest.HTTPHeaderFieldName",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Extensions/Foundation/URLRequest+HTTPHeaderField.swift",
+      "line": 62,
+      "symbol": "Dictionary.urlk_default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Extensions/Foundation/URLSessionConfiguration+HTTPHeaderField.swift",
+      "line": 4,
+      "symbol": "URLSessionConfiguration.urlk_httpAdditionalHeaders",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Extensions/Foundation/URLSessionConfiguration.swift",
+      "line": 4,
+      "symbol": "URLSessionConfiguration.urlk_default",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 6,
+      "symbol": "OAuthCredential",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 7,
+      "symbol": "OAuthCredential.accessToken",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 8,
+      "symbol": "OAuthCredential.requiresRefresh",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 11,
+      "symbol": "OAuthCredentialManager",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 12,
+      "symbol": "OAuthCredentialManager.Credential",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 14,
+      "symbol": "OAuthCredentialManager.credential",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 16,
+      "symbol": "OAuthCredentialManager.apply(_:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 21,
+      "symbol": "OAuthCredentialManager.refresh(_:for:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 27,
+      "symbol": "OAuthCredentialManager.didRequest(_:with:failDueToAuthenticationError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 33,
+      "symbol": "OAuthCredentialManager.isRequest(_:authenticatedWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 39,
+      "symbol": "OAuthCredentialManager",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 40,
+      "symbol": "OAuthCredentialManager.apply(_:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 47,
+      "symbol": "OAuthCredentialManager.didRequest(_:with:failDueToAuthenticationError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 55,
+      "symbol": "OAuthCredentialManager.isRequest(_:authenticatedWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 63,
+      "symbol": "OAuthSession",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 66,
+      "symbol": "OAuthSession.credentialManager",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 68,
+      "symbol": "OAuthSession.authenticationInterceptor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 73,
+      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:credentialManager:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 94,
+      "symbol": "OAuthSession.request(_:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
+      "line": 138,
+      "symbol": "OAuthSession",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/ParameterEncodingStrategy.swift",
+      "line": 9,
+      "symbol": "JSONParameterEncoder.encode(_:into:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/ParameterEncodingStrategy.swift",
+      "line": 18,
+      "symbol": "ParameterEncodingStrategy.json",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/ParameterEncodingStrategy.swift",
+      "line": 20,
+      "symbol": "ParameterEncodingStrategy.json(encoder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Request.swift",
+      "line": 5,
+      "symbol": "Request",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Request.swift",
+      "line": 6,
+      "symbol": "Request.requestable",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Request.swift",
+      "line": 8,
+      "symbol": "Request.underlyingRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 8,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 9,
+      "symbol": "Requestable.httpMethod",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 10,
+      "symbol": "Requestable.httpHeaders",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 13,
+      "symbol": "Requestable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 14,
+      "symbol": "Requestable.httpMethod",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Requstable.swift",
+      "line": 18,
+      "symbol": "Requestable.httpHeaders",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Response.swift",
+      "line": 4,
+      "symbol": "Response",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Response.swift",
+      "line": 5,
+      "symbol": "Response.result",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Response.swift",
+      "line": 6,
+      "symbol": "Response.response",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session+Combine.swift",
+      "line": 8,
+      "symbol": "Session.request(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 5,
+      "symbol": "Session",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 6,
+      "symbol": "Session",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 6,
+      "symbol": "Session.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 8,
+      "symbol": "Session.queue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 13,
+      "symbol": "Session.underlyingSession",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 15,
+      "symbol": "Session.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 16,
+      "symbol": "Session.responseBodyDecoder",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 18,
+      "symbol": "Session.init(configuration:baseURL:responseBodyDecoder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 32,
+      "symbol": "Session.request(_:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Validation.swift",
+      "line": 6,
+      "symbol": "ValidationError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Validation.swift",
+      "line": 7,
+      "symbol": "ValidationError.unacceptableStatusCode(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Validation.swift",
+      "line": 11,
+      "symbol": "Validation.statusCodes(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Validation.swift",
+      "line": 17,
+      "symbol": "Validation.statusCodes(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
+      "line": 17,
+      "symbol": "ParameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Validation.swift",
+      "line": 10,
+      "symbol": "Validation",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/runner/work/URLKit.swift/URLKit.swift"
+}
