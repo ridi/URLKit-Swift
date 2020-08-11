@@ -7,10 +7,15 @@ public extension Reactive where Base: Session {
     @discardableResult
     func request<T: Requestable>(
         _ request: T
-    ) -> Single<Response<T.ResponseBody, Error>> {
+    ) -> Single<T.ResponseBody> {
         Single.create { single in
             let request = self.base.request(request) { response in
-                single(.success(response))
+                switch response.result {
+                case .success(let response):
+                    single(.success(response))
+                case .failure(let error):
+                    single(.error(error))
+                }
             }
 
             return Disposables.create {
