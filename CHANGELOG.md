@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * None.
 
+## [0.2.2 (2020-08-11)]
+
+### Added
+
+* Add `encoder` parameter to `URLKit.ParameterEncodingStrategy.urlEncodedFormParameter`
+* Add `parameterEncodingStrategy` parameter to `URLKit.Session`, `HTTPURLKit.Session`, `HTTPURLKit.OAuthSession`
+
 ## [0.2.1 (2020-08-11)]
 
 ### Added
@@ -30,7 +37,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * First release.
 
-[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.1...HEAD
+[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.2...HEAD
+[0.2.2 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.1...0.2.2
 [0.2.1 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.0...0.2.1
 [0.2.0 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.1.0...0.2.0
 [0.1.0 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/releases/tag/0.1.0
