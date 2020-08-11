@@ -150,20 +150,20 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
       "line": 79,
-      "symbol": "OAuthSession.init(configuration:baseURL:responseBodyDecoder:authenticator:credential:)",
+      "symbol": "OAuthSession.init(configuration:baseURL:parameterEncodingStrategy:responseBodyDecoder:authenticator:credential:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 103,
+      "line": 110,
       "symbol": "OAuthSession.request(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 147,
+      "line": 157,
       "symbol": "OAuthSession",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -325,20 +325,27 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
       "line": 16,
+      "symbol": "Session.parameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
+      "line": 17,
       "symbol": "Session.responseBodyDecoder",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
-      "line": 18,
-      "symbol": "Session.init(configuration:baseURL:responseBodyDecoder:)",
+      "line": 19,
+      "symbol": "Session.init(configuration:baseURL:parameterEncodingStrategy:responseBodyDecoder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/Session.swift",
-      "line": 32,
+      "line": 35,
       "symbol": "Session.request(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

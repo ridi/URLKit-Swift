@@ -108,7 +108,7 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/ParameterEncodingStrategy.swift",
       "line": 54,
-      "symbol": "ParameterEncodingStrategy.urlEncodedFormParameter(_:)",
+      "symbol": "ParameterEncodingStrategy.urlEncodedFormParameter(encoder:urlEncodedFormStrategy:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
@@ -423,20 +423,27 @@
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
       "line": 15,
+      "symbol": "Session.parameterEncodingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
+      "line": 16,
       "symbol": "Session.responseBodyDecoder",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
-      "line": 17,
-      "symbol": "Session.init(configuration:baseURL:responseBodyDecoder:)",
+      "line": 18,
+      "symbol": "Session.init(configuration:baseURL:parameterEncodingStrategy:responseBodyDecoder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/URLKit/Session.swift",
-      "line": 31,
+      "line": 34,
       "symbol": "Session.request(_:completion:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
