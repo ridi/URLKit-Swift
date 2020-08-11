@@ -80,11 +80,14 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
         configuration: URLSessionConfiguration = .urlk_default,
         baseURL: URL? = nil,
         responseBodyDecoder: TopLevelDataDecoder = JSONDecoder(),
-        authenticator: Authenticator
+        authenticator: Authenticator,
+        credential: Credential? = nil
     ) {
         self.authenticator = authenticator
 
         super.init(configuration: configuration, baseURL: baseURL, responseBodyDecoder: responseBodyDecoder)
+
+        authenticationInterceptor.credential = credential
     }
 
     @available(*, unavailable)
