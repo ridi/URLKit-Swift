@@ -15,7 +15,7 @@ public protocol Requestable {
     associatedtype ResponseBody: Decodable
 
     var parameters: Parameters? { get }
-    var parameterEncodingStrategy: ParameterEncodingStrategy { get }
+    var parameterEncodingStrategy: ParameterEncodingStrategy? { get }
 
     static var responseBodyType: ResponseBody.Type? { get }
     var responseBodyDecoder: TopLevelDataDecoder? { get }
@@ -29,7 +29,7 @@ public protocol Requestable {
 
 public extension Requestable {
     var parameters: Parameters? { self as? Parameters }
-    var parameterEncodingStrategy: ParameterEncodingStrategy { .urlEncodedFormParameter }
+    var parameterEncodingStrategy: ParameterEncodingStrategy? { nil }
 
     static var responseBodyType: ResponseBody.Type? { nil }
     var responseBodyDecoder: TopLevelDataDecoder? { nil }
@@ -44,7 +44,7 @@ public extension Requestable where Self: Decodable {
 }
 
 extension Requestable {
-    func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
+    func asURLRequest(baseURL: URL? = nil, parameterEncodingStrategy: ParameterEncodingStrategy) throws -> URLRequest {
         var request = URLRequest(
             url: URL(
                 string: url.absoluteString,
@@ -52,7 +52,7 @@ extension Requestable {
             )!
         )
 
-        try parameterEncodingStrategy.encode(parameters, into: &request)
+        try (self.parameterEncodingStrategy ?? parameterEncodingStrategy).encode(parameters, into: &request)
         
         return request
     }

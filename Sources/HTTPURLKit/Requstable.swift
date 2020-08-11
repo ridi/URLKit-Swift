@@ -21,7 +21,7 @@ public extension Requestable {
 }
 
 extension Requestable {
-    func asURLRequest(baseURL: URL? = nil) throws -> URLRequest {
+    func asURLRequest(baseURL: URL? = nil, parameterEncodingStrategy: ParameterEncodingStrategy) throws -> URLRequest {
         var request = URLRequest(
             url: URL(
                 string: url.absoluteString,
@@ -31,7 +31,7 @@ extension Requestable {
         request.httpMethod = httpMethod.rawValue
         request.urlk_allHTTPHeaderFields = httpHeaders
 
-        try parameterEncodingStrategy.encode(parameters, into: &request)
+        try (self.parameterEncodingStrategy ?? parameterEncodingStrategy).encode(parameters, into: &request)
 
         return request
     }

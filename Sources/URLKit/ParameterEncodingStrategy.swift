@@ -48,14 +48,16 @@ extension ParameterEncodingStrategy {
     }
 
     public static var urlEncodedFormParameter: ParameterEncodingStrategy {
-        .urlEncodedFormParameter(.deferredToHTTPMethod)
+        .urlEncodedFormParameter()
     }
 
     public static func urlEncodedFormParameter(
-        _ urlEncodedFormStrategy: URLEncodedFormStrategy
+        encoder: URLEncodedFormEncoder = URLEncodedFormEncoder(),
+        urlEncodedFormStrategy: URLEncodedFormStrategy = .deferredToHTTPMethod
     ) -> ParameterEncodingStrategy {
         self.init(
             encoder: URLEncodedFormParameterEncoder(
+                encoder: encoder,
                 destination: {
                     switch urlEncodedFormStrategy {
                     case .deferredToHTTPMethod:
