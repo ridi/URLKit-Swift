@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 
 public protocol ParameterEncoder {
-    func encode<Parameters: Encodable>(_ parameters: Parameters?, into request: inout URLRequest) throws -> Void
+    func encode<Parameters: Encodable>(_ parameters: Parameters?, into request: inout URLRequest) throws
 }
 
 struct CustomParameterEncoder: ParameterEncoder {
@@ -26,13 +26,13 @@ public struct ParameterEncodingStrategy {
         _encoder = encoder
     }
 
-    public func encode<Parameters: Encodable>(_ parameters: Parameters?, into request: inout URLRequest) throws -> Void {
+    public func encode<Parameters: Encodable>(_ parameters: Parameters?, into request: inout URLRequest) throws {
         try _encoder.encode(parameters, into: &request)
     }
 }
 
 extension URLEncodedFormParameterEncoder: ParameterEncoder {
-    public func encode<Parameters>(_ parameters: Parameters?, into request: inout URLRequest) throws where Parameters : Encodable {
+    public func encode<Parameters>(_ parameters: Parameters?, into request: inout URLRequest) throws where Parameters: Encodable {
         request = try encode(parameters, into: request)
     }
 }

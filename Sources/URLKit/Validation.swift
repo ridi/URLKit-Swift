@@ -13,7 +13,7 @@ public struct Validation {
         _validation = validation
     }
 
-    public func validate(request: URLRequest?, response: URLResponse?, data: Data?) throws -> Void {
+    public func validate(request: URLRequest?, response: URLResponse?, data: Data?) throws {
         try _validation(request, response, data)
     }
 }

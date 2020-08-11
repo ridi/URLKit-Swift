@@ -36,7 +36,9 @@ open class Session: SessionProtocol {
 
         queue.async {
             do {
-                let alamofireRequest = try self.underlyingSession.request(request.requestable.asURLRequest(baseURL: self.baseURL))
+                let alamofireRequest = try self.underlyingSession.request(
+                    request.requestable.asURLRequest(baseURL: self.baseURL)
+                )
                 request.underlyingRequest = alamofireRequest
 
                 alamofireRequest
