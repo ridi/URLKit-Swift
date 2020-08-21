@@ -62,13 +62,13 @@ open class Session: SessionProtocol {
                         decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(
-                                result: $0.result
-                                    .mapError { $0.underlyingError ?? $0 }
+                                result: $0.result.mapError { $0.underlyingError ?? $0 },
+                                underlyingResponse: $0
                             ))
                         }
                     )
             } catch {
-                completion(.init(result: .failure(error)))
+                completion(.init(result: .failure(error), underlyingResponse: nil))
             }
         }
 

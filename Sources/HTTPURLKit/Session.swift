@@ -65,12 +65,12 @@ open class Session: SessionProtocol {
                             completion(.init(
                                 result: $0.result
                                     .mapError { $0.underlyingError ?? $0 },
-                                response: $0.response
+                                underlyingResponse: $0
                             ))
                         }
                     )
             } catch {
-                completion(.init(result: .failure(error)))
+                completion(.init(result: .failure(error), underlyingResponse: nil))
             }
         }
 
