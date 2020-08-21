@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ResponseError<Success, Failure: Error>: Error {
+public struct RequestError<Success, Failure: Error>: Error {
     let underlyingError: Failure
     let response: Response<Success, Failure>?
 
@@ -13,7 +13,7 @@ public struct ResponseError<Success, Failure: Error>: Error {
     }
 }
 
-extension ResponseError: CustomNSError {
+extension RequestError: CustomNSError {
     public var errorUserInfo: [String: Any] {
         return [
             NSUnderlyingErrorKey: underlyingError

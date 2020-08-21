@@ -7,7 +7,7 @@ extension Session {
     @discardableResult
     open func request<T: Requestable>(
         _ request: T
-    ) -> AnyPublisher<(Response<T.ResponseBody, Error>, T.ResponseBody), ResponseError<T.ResponseBody, Error>> {
+    ) -> AnyPublisher<(Response<T.ResponseBody, Error>, T.ResponseBody), RequestError<T.ResponseBody, Error>> {
         var _request: Request<T>?
 
         return Future { promise in
@@ -18,7 +18,6 @@ extension Session {
                 case .failure(let error):
                     promise(.failure(.init(underlyingError: error, response: response)))
                 }
-
             }
         }
         .handleEvents(
