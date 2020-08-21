@@ -21,7 +21,7 @@ public extension Requestable {
 }
 
 extension Requestable {
-    func asURLRequest(baseURL: URL? = nil, parameterEncodingStrategy: ParameterEncodingStrategy) throws -> URLRequest {
+    public func asURLRequest(baseURL: URL? = nil, parameterEncodingStrategy: ParameterEncodingStrategy) throws -> URLRequest {
         var request = URLRequest(
             url: URL(
                 string: url.absoluteString,
