@@ -34,7 +34,7 @@ open class Session: SessionProtocol {
     @discardableResult
     open func request<T: Requestable>(
         _ request: T,
-        completion: @escaping (Response<T.ResponseBody, Error>) -> Void
+        completion: @escaping (Response<T.ResponseBody, Swift.Error>) -> Void
     ) -> Request<T> {
         let request = Request(requestable: request)
 

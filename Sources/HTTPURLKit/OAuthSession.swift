@@ -19,13 +19,13 @@ public protocol OAuthAuthenticator {
     func refresh(
         _ credential: Credential,
         for session: OAuthSession<Self>,
-        completion: @escaping (Result<Credential, Error>) -> Void
+        completion: @escaping (Result<Credential, Swift.Error>) -> Void
     )
 
     func didRequest(
         _ urlRequest: URLRequest,
         with response: HTTPURLResponse,
-        failDueToAuthenticationError error: Error
+        failDueToAuthenticationError error: Swift.Error
     ) -> Bool
 
     func isRequest(
@@ -45,7 +45,7 @@ public extension OAuthAuthenticator {
     func didRequest(
         _ urlRequest: URLRequest,
         with response: HTTPURLResponse,
-        failDueToAuthenticationError error: Error
+        failDueToAuthenticationError error: Swift.Error
     ) -> Bool {
         return response.statusCode == 401
     }
@@ -109,7 +109,7 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
     @discardableResult
     open override func request<T: Requestable>(
         _ request: T,
-        completion: @escaping (Response<T.ResponseBody, Error>) -> Void
+        completion: @escaping (Response<T.ResponseBody, Swift.Error>) -> Void
     ) -> Request<T> {
         let request = Request(requestable: request)
 
@@ -161,13 +161,13 @@ extension OAuthSession: Alamofire.Authenticator {
 
     public func refresh(_ credential: Credential,
                         for session: Alamofire.Session,
-                        completion: @escaping (Result<Credential, Error>) -> Void) {
+                        completion: @escaping (Result<Credential, Swift.Error>) -> Void) {
         authenticator.refresh(credential, for: self, completion: completion)
     }
 
     public func didRequest(_ urlRequest: URLRequest,
                            with response: HTTPURLResponse,
-                           failDueToAuthenticationError error: Error) -> Bool {
+                           failDueToAuthenticationError error: Swift.Error) -> Bool {
         authenticator.didRequest(urlRequest, with: response, failDueToAuthenticationError: error)
     }
 
