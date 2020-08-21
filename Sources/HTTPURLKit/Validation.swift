@@ -3,7 +3,7 @@ import URLKit
 
 @_exported import struct URLKit.Validation
 
-public enum ValidationError: Swift.Error {
+public enum ValidationError: Error {
     case unacceptableStatusCode(Int)
 }
 

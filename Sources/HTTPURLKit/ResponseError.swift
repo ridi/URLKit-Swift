@@ -1,6 +1,6 @@
 import Foundation
 
-public struct ResponseError<Success, Failure: Swift.Error>: Swift.Error {
+public struct ResponseError<Success, Failure: Error>: Error {
     let underlyingError: Failure
     let response: Response<Success, Failure>?
 

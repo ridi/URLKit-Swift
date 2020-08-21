@@ -7,7 +7,7 @@ public extension Reactive where Base: Session {
     @discardableResult
     func request<T: Requestable>(
         _ request: T
-    ) -> Single<(Response<T.ResponseBody, Swift.Error>, T.ResponseBody)> {
+    ) -> Single<(Response<T.ResponseBody, Error>, T.ResponseBody)> {
         Single.create { single in
             let request = self.base.request(request) { response in
                 switch response.result {

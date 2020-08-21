@@ -1,7 +1,7 @@
 import Foundation
 
 public extension Result {
-    func eraseFailureToError() -> Result<Success, Swift.Error> {
+    func eraseFailureToError() -> Result<Success, Error> {
         switch self {
         case .success(let value):
             return .success(value)

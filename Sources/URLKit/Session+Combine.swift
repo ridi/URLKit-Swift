@@ -7,7 +7,7 @@ extension Session {
     @discardableResult
     open func request<T: Requestable>(
         _ request: T
-    ) -> AnyPublisher<(Response<T.ResponseBody, Swift.Error>, T.ResponseBody), ResponseError<T.ResponseBody, Swift.Error>> {
+    ) -> AnyPublisher<(Response<T.ResponseBody, Error>, T.ResponseBody), ResponseError<T.ResponseBody, Error>> {
         var _request: Request<T>?
 
         return Future { promise in
