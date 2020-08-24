@@ -2,6 +2,9 @@ import Foundation
 import Alamofire
 import URLKit
 
+@_exported import protocol URLKit.RequestInterceptorProtocol
+@_exported import struct URLKit.RequestInterceptor
+
 open class Session: SessionProtocol {
     public static var shared: Session = .init()
 
