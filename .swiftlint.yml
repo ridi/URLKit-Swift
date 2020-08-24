@@ -35,7 +35,6 @@ opt_in_rules:
   - file_header # Header comments should be consistent with project patterns.
   - first_where # Prefer using `.first(where:)` over `.filter { }.first` in collections.
   - flatmap_over_map_reduce # Prefer `flatMap` over `map` followed by `reduce([], +)`.
-  - function_default_parameter_at_end # Prefer to locate parameters with defaults toward the end of the parameter list.
   - implicitly_unwrapped_optional # Implicitly unwrapped optionals should be avoided when possible.
   - joined_default_parameter # Discouraged explicit usage of the default. separator.
   - last_where # Prefer using `.last(where:)` over `.filter { }.last` in collections.

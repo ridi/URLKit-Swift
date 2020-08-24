@@ -1,4 +1,3 @@
-// swiftlint:disable function_default_parameter_at_end
 import Foundation
 import Alamofire
 import URLKit

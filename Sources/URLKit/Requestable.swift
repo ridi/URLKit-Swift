@@ -44,7 +44,6 @@ public extension Requestable where Self: Decodable {
 }
 
 extension Requestable {
-    // swiftlint:disable:next function_default_parameter_at_end
     public func asURLRequest(
         baseURL: URL? = nil,
         parameterEncodingStrategy: ParameterEncodingStrategy

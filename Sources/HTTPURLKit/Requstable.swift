@@ -21,7 +21,6 @@ public extension Requestable {
 }
 
 extension Requestable {
-    // swiftlint:disable:next function_default_parameter_at_end
     public func asURLRequest(
         baseURL: URL? = nil,
         parameterEncodingStrategy: ParameterEncodingStrategy
