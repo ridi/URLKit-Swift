@@ -120,7 +120,19 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
                         baseURL: self.baseURL,
                         parameterEncodingStrategy: self.parameterEncodingStrategy
                     ),
-                    interceptor: request.requestable.requiresAuthentication ? self.authenticationInterceptor : nil
+                    interceptor: Interceptor(
+                        interceptors: self.requestInterceptors.map { requestAdaptor in
+                            Adapter {
+                                do {
+                                    var request = $0
+                                    try requestAdaptor.adapt(&request, for: self)
+                                    $2(.success(request))
+                                } catch {
+                                    $2(.failure(error))
+                                }
+                            }
+                        } + (request.requestable.requiresAuthentication ? [self.authenticationInterceptor] : [])
+                    )
                 )
                 request.underlyingRequest = alamofireRequest
 

@@ -14,6 +14,7 @@ open class Session: SessionProtocol {
     open private(set) var baseURL: URL?
     open private(set) var parameterEncodingStrategy: ParameterEncodingStrategy
     open private(set) var responseBodyDecoder: TopLevelDataDecoder
+    open var requestInterceptors = [RequestInterceptorProtocol]()
 
     public required init(
         configuration: URLSessionConfiguration = .default,
@@ -43,6 +44,19 @@ open class Session: SessionProtocol {
                     request.requestable.asURLRequest(
                         baseURL: self.baseURL,
                         parameterEncodingStrategy: self.parameterEncodingStrategy
+                    ),
+                    interceptor: Interceptor(
+                        interceptors: self.requestInterceptors.map { requestAdaptor in
+                            Adapter {
+                                do {
+                                    var request = $0
+                                    try requestAdaptor.adapt(&request, for: self)
+                                    $2(.success(request))
+                                } catch {
+                                    $2(.failure(error))
+                                }
+                            }
+                        }
                     )
                 )
                 request.underlyingRequest = alamofireRequest
