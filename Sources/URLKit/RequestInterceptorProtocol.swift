@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 
 /// Outcome of determination whether retry is necessary.
 public enum RetryResult {
@@ -22,5 +23,20 @@ extension RequestInterceptorProtocol {
 
     public func retry(_ request: RequestProtocol, for session: SessionProtocol, dueTo error: Error) -> RetryResult {
         .doNotRetry
+    }
+}
+
+extension Alamofire.RetryResult {
+    public init(_ retryResult: RetryResult) {
+        switch retryResult {
+        case .retry:
+            self = .retry
+        case .retryWithDelay(let delay):
+            self = .retryWithDelay(delay)
+        case .doNotRetry:
+            self = .doNotRetry
+        case .doNotRetryWithError(let error):
+            self = .doNotRetryWithError(error)
+        }
     }
 }
