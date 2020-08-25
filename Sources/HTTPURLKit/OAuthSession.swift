@@ -1,6 +1,11 @@
 import Foundation
-import Alamofire
 import URLKit
+import enum Alamofire.RetryResult
+import class Alamofire.AuthenticationInterceptor
+import class Alamofire.Interceptor
+import class Alamofire.Session
+import protocol Alamofire.AuthenticationCredential
+import protocol Alamofire.Authenticator
 
 public protocol OAuthCredential: AuthenticationCredential {
     var accessToken: String { get }

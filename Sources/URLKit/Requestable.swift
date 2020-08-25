@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import protocol Alamofire.EmptyResponse
 
 public struct EmptyParameters: Encodable {}
 public struct EmptyResponse: Decodable {}

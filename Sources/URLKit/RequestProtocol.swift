@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import class Alamofire.DataRequest
 
 public protocol RequestProtocol {
     var underlyingRequest: Alamofire.DataRequest? { get }

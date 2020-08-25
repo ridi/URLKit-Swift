@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import struct Alamofire.HTTPHeaders
 
 extension URLRequest {
     public struct HTTPHeaderFieldName: RawRepresentable, Hashable {

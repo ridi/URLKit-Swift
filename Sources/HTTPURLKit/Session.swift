@@ -1,9 +1,10 @@
 import Foundation
-import Alamofire
 import URLKit
-
 @_exported import protocol URLKit.RequestInterceptorProtocol
 @_exported import struct URLKit.RequestInterceptor
+import class Alamofire.Session
+import class Alamofire.Interceptor
+import enum Alamofire.RetryResult
 
 open class Session: SessionProtocol {
     public static var shared: Session = .init()

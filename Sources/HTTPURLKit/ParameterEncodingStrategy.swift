@@ -1,9 +1,8 @@
 import Foundation
-import Alamofire
 import URLKit
-
 @_exported import protocol URLKit.ParameterEncoder
 @_exported import struct URLKit.ParameterEncodingStrategy
+@_exported import class Alamofire.JSONParameterEncoder
 
 extension JSONParameterEncoder: ParameterEncoder {
     public func encode<Parameters>(

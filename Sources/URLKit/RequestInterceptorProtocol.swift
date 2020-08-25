@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import enum Alamofire.RetryResult
 
 /// Outcome of determination whether retry is necessary.
 public enum RetryResult {

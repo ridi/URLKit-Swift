@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import class Alamofire.Session
 
 public protocol SessionProtocol: AnyObject {
     var queue: DispatchQueue { get }

@@ -1,6 +1,5 @@
 import Foundation
 import URLKit
-import Alamofire
 
 @_exported import struct URLKit.EmptyParameters
 @_exported import struct URLKit.EmptyResponse

@@ -1,5 +1,6 @@
 import Foundation
-import Alamofire
+@_exported import class Alamofire.URLEncodedFormParameterEncoder
+@_exported import class Alamofire.URLEncodedFormEncoder
 
 public protocol ParameterEncoder {
     func encode<Parameters: Encodable>(_ parameters: Parameters?, into request: inout URLRequest) throws

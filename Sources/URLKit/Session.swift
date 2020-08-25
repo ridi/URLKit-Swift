@@ -1,5 +1,7 @@
 import Foundation
-import Alamofire
+import class Alamofire.Interceptor
+import class Alamofire.Session
+import enum Alamofire.RetryResult
 
 open class Session: SessionProtocol {
     public static var shared: Session = .init()

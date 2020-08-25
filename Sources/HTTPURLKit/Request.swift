@@ -1,6 +1,6 @@
 import Foundation
 import URLKit
-import Alamofire
+import class Alamofire.DataRequest
 
 public class Request<Requstable: Requestable>: RequestProtocol {
     public var requestable: Requstable

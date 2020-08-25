@@ -1,6 +1,6 @@
 import Foundation
-import Alamofire
 import URLKit
+import typealias Alamofire.AFDataResponse
 
 public struct Response<Success, Failure: Error>: ResponseProtocol {
     public let result: Result<Success, Failure>

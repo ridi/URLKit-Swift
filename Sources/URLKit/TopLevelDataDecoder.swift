@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import protocol Alamofire.DataDecoder
 
 public protocol TopLevelDataDecoder: Alamofire.DataDecoder {
     func decode<T>(_ type: T.Type, from: Data) throws -> T where T: Decodable

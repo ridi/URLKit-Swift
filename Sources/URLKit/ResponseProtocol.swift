@@ -1,5 +1,5 @@
 import Foundation
-import Alamofire
+import typealias Alamofire.AFDataResponse
 
 public protocol ResponseProtocol {
     associatedtype Success
