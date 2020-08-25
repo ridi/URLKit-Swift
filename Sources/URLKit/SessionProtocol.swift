@@ -8,4 +8,5 @@ public protocol SessionProtocol: AnyObject {
 
     var baseURL: URL? { get }
     var responseBodyDecoder: TopLevelDataDecoder { get }
+    var requestInterceptors: [RequestInterceptorProtocol] { get set }
 }

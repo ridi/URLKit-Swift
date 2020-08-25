@@ -14,6 +14,7 @@ open class Session: SessionProtocol {
     open private(set) var baseURL: URL?
     open private(set) var parameterEncodingStrategy: ParameterEncodingStrategy
     open private(set) var responseBodyDecoder: TopLevelDataDecoder
+    open var requestInterceptors = [RequestInterceptorProtocol]()
 
     public required init(
         configuration: URLSessionConfiguration = .default,
@@ -43,6 +44,26 @@ open class Session: SessionProtocol {
                     request.requestable.asURLRequest(
                         baseURL: self.baseURL,
                         parameterEncodingStrategy: self.parameterEncodingStrategy
+                    ),
+                    interceptor: Interceptor(
+                        interceptors: self.requestInterceptors.map { requestInterceptor in
+                            Interceptor(
+                                adaptHandler: {
+                                    do {
+                                        var request = $0
+                                        try requestInterceptor.adapt(&request, for: self)
+                                        $2(.success(request))
+                                    } catch {
+                                        $2(.failure(error))
+                                    }
+                                },
+                                retryHandler: {
+                                    $3(
+                                        Alamofire.RetryResult(requestInterceptor.retry(request, for: self, dueTo: $2))
+                                    )
+                                }
+                            )
+                        }
                     )
                 )
                 request.underlyingRequest = alamofireRequest
@@ -62,13 +83,13 @@ open class Session: SessionProtocol {
                         decoder: request.requestable.responseBodyDecoder ?? self.responseBodyDecoder,
                         completionHandler: {
                             completion(.init(
-                                result: $0.result
-                                    .mapError { $0.underlyingError ?? $0 }
+                                result: $0.result.mapError { $0.underlyingError ?? $0 },
+                                underlyingResponse: $0
                             ))
                         }
                     )
             } catch {
-                completion(.init(result: .failure(error)))
+                completion(.init(result: .failure(error), underlyingResponse: nil))
             }
         }
 

@@ -1,7 +1,10 @@
 import Foundation
+import Alamofire
 import URLKit
 
-public struct Response<Success, Failure: Swift.Error>: ResponseProtocol {
-    public var result: Result<Success, Failure>
-    public var response: HTTPURLResponse?
+public struct Response<Success, Failure: Error>: ResponseProtocol {
+    public let result: Result<Success, Failure>
+
+    public let underlyingResponse: Alamofire.AFDataResponse<Success>?
+    public var response: HTTPURLResponse? { underlyingResponse?.response }
 }

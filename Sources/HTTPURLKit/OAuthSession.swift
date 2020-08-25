@@ -1,4 +1,3 @@
-// swiftlint:disable function_default_parameter_at_end
 import Foundation
 import Alamofire
 import URLKit
@@ -120,7 +119,26 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
                         baseURL: self.baseURL,
                         parameterEncodingStrategy: self.parameterEncodingStrategy
                     ),
-                    interceptor: request.requestable.requiresAuthentication ? self.authenticationInterceptor : nil
+                    interceptor: Interceptor(
+                        interceptors: self.requestInterceptors.map { requestInterceptor in
+                            Interceptor(
+                                adaptHandler: {
+                                    do {
+                                        var request = $0
+                                        try requestInterceptor.adapt(&request, for: self)
+                                        $2(.success(request))
+                                    } catch {
+                                        $2(.failure(error))
+                                    }
+                                },
+                                retryHandler: {
+                                    $3(
+                                        Alamofire.RetryResult(requestInterceptor.retry(request, for: self, dueTo: $2))
+                                    )
+                                }
+                            )
+                        } + (request.requestable.requiresAuthentication ? [self.authenticationInterceptor] : [])
+                    )
                 )
                 request.underlyingRequest = alamofireRequest
 
@@ -141,12 +159,12 @@ open class OAuthSession<Authenticator: OAuthAuthenticator>: Session {
                             completion(.init(
                                 result: $0.result
                                     .mapError { $0.underlyingError ?? $0 },
-                                response: $0.response
+                                underlyingResponse: $0
                             ))
                         }
                     )
             } catch {
-                completion(.init(result: .failure(error)))
+                completion(.init(result: .failure(error), underlyingResponse: nil))
             }
         }
 
