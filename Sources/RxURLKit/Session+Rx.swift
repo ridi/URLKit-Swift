@@ -14,7 +14,7 @@ extension Reactive where Base: Session {
                 case .success(let response):
                     single(.success(response))
                 case .failure(let error):
-                    single(.error(error))
+                    single(.failure(error))
                 }
             }
 
