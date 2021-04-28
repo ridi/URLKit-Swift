@@ -43,7 +43,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * First release.
 
-[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.2...HEAD
+[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.3...HEAD
 [0.2.3 (2021-04-28)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.2...0.2.3
 [0.2.2 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.1...0.2.2
 [0.2.1 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.0...0.2.1
