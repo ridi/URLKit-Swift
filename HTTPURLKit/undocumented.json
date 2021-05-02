@@ -163,7 +163,7 @@
     },
     {
       "file": "/Users/runner/work/URLKit.swift/URLKit.swift/Sources/HTTPURLKit/OAuthSession.swift",
-      "line": 157,
+      "line": 158,
       "symbol": "OAuthSession",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
