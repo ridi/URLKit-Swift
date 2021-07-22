@@ -7,49 +7,56 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-* None.
+- None.
+
+## [0.2.5 (2021-07-22)]
+
+### Changed
+
+- Add 200 to allow empty response list for OAuthSession
 
 ## [0.2.4 (2021-04-29)]
 
 ### Changed
 
-* Add 200 to allow empty response list
+- Add 200 to allow empty response list
 
 ## [0.2.3 (2021-04-28)]
 
 ### Changed
 
-* Update RxSwift to 6.1.0
+- Update RxSwift to 6.1.0
 
 ## [0.2.2 (2020-08-11)]
 
 ### Added
 
-* Add `encoder` parameter to `URLKit.ParameterEncodingStrategy.urlEncodedFormParameter`
-* Add `parameterEncodingStrategy` parameter to `URLKit.Session`, `HTTPURLKit.Session`, `HTTPURLKit.OAuthSession`
+- Add `encoder` parameter to `URLKit.ParameterEncodingStrategy.urlEncodedFormParameter`
+- Add `parameterEncodingStrategy` parameter to `URLKit.Session`, `HTTPURLKit.Session`, `HTTPURLKit.OAuthSession`
 
 ## [0.2.1 (2020-08-11)]
 
 ### Added
 
-* Add `credential` parameter to `OAuthSession.init`
+- Add `credential` parameter to `OAuthSession.init`
 
 ## [0.2.0 (2020-08-11)]
 
 ### Added
 
-* Add `credential` proeprty to `OAuthSession`
+- Add `credential` proeprty to `OAuthSession`
 
 ### Changed
 
-* Raname `OAuthCredentialManager` to `OAuthAuthenticator`
-* Rename `OAuthSession.credentialManager` to `OAuthSession.authenticator`
+- Raname `OAuthCredentialManager` to `OAuthAuthenticator`
+- Rename `OAuthSession.credentialManager` to `OAuthSession.authenticator`
 
 ## [0.1.0 (2020-08-11)]
 
-* First release.
+- First release.
 
-[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.4...HEAD
+[Unreleased]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.5...HEAD
+[0.2.5 (2021-07-22)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.4...0.2.5
 [0.2.4 (2021-04-29)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.3...0.2.4
 [0.2.3 (2021-04-28)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.2...0.2.3
 [0.2.2 (2020-08-11)]: https://github.com/ridi/RIDIFoundation-iOS/compare/0.2.1...0.2.2
